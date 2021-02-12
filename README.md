@@ -1,3 +1,3 @@
 ## About Academe
 
-Academe is a Lancaster University student project. This project is to help advance the teaching and learning processes between Lecturers a student.
+Academe is a project work of a student in Lancaster University Ghana student. This project is to help advance the teaching and learning processes between Lecturers and students respectfully.
