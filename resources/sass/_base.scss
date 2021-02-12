@@ -1,0 +1,80 @@
+/***********************************
+            BASIC RESET
+***********************************/
+
+// @font-face {
+//     @import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400&display=swap");
+//     font-family: "Raleway", sans-serif;
+//     font-weight: 400;
+// }
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // font-size: 62.5%;
+    /*
+    Converting default browser font-size of 16px to 10px in percentage
+    10px / 16px * 100 = 62.5%, thus 1rem = 62.5% = 10px
+    */
+    // @include respond(tab-landscape) {
+    //     font-size: 56.25%; // 1rem = 9px, 8/16*100 = 56.25%
+    // }
+    // @include respond(tab-portrait) {
+    //     font-size: 50%; // 1rem = 8px, 8/16*100 = 50%
+    // }
+    // @include respond(big-desktop) {
+    //     font-size: 75%; // 1rem = 12px, 12/16*100 = 75%
+    // }
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $text-1 !important;
+    background-color: $body-bg;
+}
+
+a,
+a:active {
+    color: $text;
+    text-decoration: none;
+}
+
+::selection {
+    background-color: $blue;
+    color: #fff;
+}
+
+.MuiButtonBase-root.nav-link{
+    &  span.MuiTypography-root{
+        color: black ;
+    }
+}
+
+.MuiButton-label > div{
+     margin-bottom: -.5rem;
+     margin-right: .5rem;
+    }
+    .MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label:hover, .MuiTreeItem-root.Mui-selected:focus > .MuiTreeItem-content .MuiTreeItem-label {
+        background-color: #ff57226b !important;
+    }
+.dialog-title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div[x-placement]{
+    z-index: 1;
+}
+
+

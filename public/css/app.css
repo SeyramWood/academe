@@ -1,0 +1,249 @@
+/***********************************
+            GRID
+***********************************/
+
+/**
+    DESKTOP FIRST APPROACH
+    No media query necessary for xl breakpoint as it has no upper bound on its width
+**/
+
+/**
+    DESKTOP FIRST APPROACH
+    No media query necessary for xl breakpoint as it has no upper bound on its width
+**/
+
+.m-1 {
+  margin: 0.25rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-3 {
+  margin: 1rem;
+}
+
+.m-4 {
+  margin: 1.25rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.25rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 1.25rem;
+}
+
+.my-1 {
+  margin: 0.25rem 0;
+}
+
+.my-2 {
+  margin: 0.5rem 0;
+}
+
+.my-3 {
+  margin: 1rem 0;
+}
+
+.my-4 {
+  margin: 1.25rem 0;
+}
+
+.MuiListItemText-root.ml-4 {
+  margin-left: 1.25rem;
+}
+
+.error {
+  color: #f44336 !important;
+}
+
+.submit-btn-wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.btn-right {
+  justify-content: flex-end;
+}
+
+.secondary {
+  color: #e96303;
+}
+
+.black {
+  color: black;
+}
+
+/***********************************
+            BASIC RESET
+***********************************/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /*
+  Converting default browser font-size of 16px to 10px in percentage
+  10px / 16px * 100 = 62.5%, thus 1rem = 62.5% = 10px
+  */
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #797979 !important;
+  background-color: #fff;
+}
+
+a,
+a:active {
+  color: #919191;
+  text-decoration: none;
+}
+
+::-moz-selection {
+  background-color: #3490dc;
+  color: #fff;
+}
+
+::selection {
+  background-color: #3490dc;
+  color: #fff;
+}
+
+.MuiButtonBase-root.nav-link span.MuiTypography-root {
+  color: black;
+}
+
+.MuiButton-label > div {
+  margin-bottom: -0.5rem;
+  margin-right: 0.5rem;
+}
+
+.MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label:hover,
+.MuiTreeItem-root.Mui-selected:focus > .MuiTreeItem-content .MuiTreeItem-label {
+  background-color: #ff57226b !important;
+}
+
+.dialog-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div[x-placement] {
+  z-index: 1;
+}
+
+.toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.MuiAppBar-colorPrimary {
+  color: #919191 !important;
+  background-color: #fff !important;
+}
+
+.dashboard-summary {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+@media only screen and (max-width: 35.999em) {
+  .dashboard-summary {
+    flex-direction: column;
+    margin: 0;
+  }
+}
+
+.dashboard-summary > div:last-child {
+  text-align: left;
+  font-size: medium;
+  padding-left: 1rem;
+}
+
+@media only screen and (max-width: 35.999em) {
+  .dashboard-summary > div:last-child {
+    margin-top: 1rem;
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+.dashboard-summary > div:last-child > p:first-child {
+  font-weight: bolder;
+  color: #000;
+}
+
+.uni-logo-box {
+  width: 100%;
+  height: 5rem;
+  padding: 0.2rem 0;
+}
+
+.uni-logo-box > img {
+  width: 100%;
+  height: 100%;
+}
+
+.current-user {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 35.999em) {
+  .current-user__name {
+    display: none;
+  }
+}
+
+.app-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+

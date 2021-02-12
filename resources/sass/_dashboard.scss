@@ -1,0 +1,57 @@
+.dashboard-summary{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  @include respond-down(xs){
+    flex-direction: column;
+    margin: 0;
+  }
+  & >div:last-child{
+    text-align: left;
+    font-size: medium;
+    padding-left: 1rem;
+    @include respond-down(xs){
+      margin-top: 1rem;
+      padding-left: 0;
+      text-align: center;
+    
+    }
+    & > p:first-child{
+      font-weight: bolder;
+      color: $black;
+    }
+  }
+}
+
+.uni-logo-box{
+    width: 100%;
+    height: 5rem;
+    padding: .2rem 0;
+    & > img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.current-user{
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 1rem;
+    &__name{
+        
+        @include respond-down(xs){
+            display: none;
+        
+        }
+  
+    }
+}
+
+.app-toolbar{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+

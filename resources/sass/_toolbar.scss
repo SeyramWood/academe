@@ -1,0 +1,10 @@
+.toolbar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.MuiAppBar-colorPrimary {
+    color: $text !important;
+    background-color: #fff !important;
+}
