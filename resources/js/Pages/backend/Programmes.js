@@ -11,8 +11,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
 
-import UploadFile from "../../components/uploadFile/UploadFile";
-
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1

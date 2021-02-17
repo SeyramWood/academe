@@ -28,3 +28,10 @@
 }
 .secondary{color: rgb(233, 99, 3);}
 .black{color: rgb(0, 0, 0);}
+
+.truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

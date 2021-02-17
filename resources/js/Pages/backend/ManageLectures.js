@@ -11,6 +11,7 @@ import useFormValidation from "../../components/form/useFormValidation";
 import DialogComponent from "../../components/DialogComponet";
 import { Puff } from "../../components/Spinner";
 import SnackbarAlert from "../../components/SnackbarAlert";
+import UploadFile from "../../components/UploadFile";
 
 const programmeState = {
     STATE: {
@@ -91,6 +92,7 @@ const ManageLectures = ({ programmes }) => {
     };
     return (
         <>
+            <UploadFile btnText="upload video" />
             <AllLecturesView
                 programmes={programmes}
                 getProgrammeToUpdate={getProgrammeToUpdate}

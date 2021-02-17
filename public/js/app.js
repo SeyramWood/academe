@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"37fe6b916698c0632cbd","1":"f9ca341e2d918012b53f","2":"4bb2e652ddc9dede2908","3":"4ff4ab7de930fc1ef075","4":"3af79b4c3ff1a675326d","5":"a62e248490ee09446cbb","6":"94c7584585617bd55f63","7":"72370a796923e5aa9446","8":"c75bc57980f168fa0418","9":"f922fdc0b28c37c359d8","10":"12c5ca382ff95559c5a7","11":"fc879534da5894ddd716","12":"edbf42e2d7c0a50d348f","13":"4a23f5222610cc4715e4","14":"56211de3331a2293175e"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"37fe6b916698c0632cbd","1":"f14281ea22cbe3b67f04","2":"b781165adcffdb799b52","3":"3698a8f33cbbe52b6237","4":"757e1876ad117b700038","5":"8b7029ef9f568f2e5dbd","6":"aa9be165e71ee393174f","7":"82c41b5737d7f9378b5a","8":"c75bc57980f168fa0418","9":"653ecfc3a04f70b4f2bb","10":"12c5ca382ff95559c5a7","13":"5565ca8ed63b6874a8c7","14":"14342292fd7a6b7a9ad8","16":"1aa07cfedc78204e03ac","18":"b058ea424a2a3380f3bb"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -34386,36 +34386,35 @@ module.exports = function (css) {
 var map = {
 	"./Welcome": [
 		"./resources/js/Pages/Welcome.js",
-		12
+		13
 	],
 	"./Welcome.js": [
 		"./resources/js/Pages/Welcome.js",
-		12
+		13
 	],
 	"./backend/Home": [
 		"./resources/js/Pages/backend/Home.js",
 		0,
-		5,
+		9,
 		8,
-		1,
-		13
+		5,
+		14
 	],
 	"./backend/Home.js": [
 		"./resources/js/Pages/backend/Home.js",
 		0,
-		5,
+		9,
 		8,
-		1,
-		13
+		5,
+		14
 	],
 	"./backend/ManageCourses": [
 		"./resources/js/Pages/backend/ManageCourses.js",
 		0,
 		2,
 		3,
-		6,
-		1,
-		4,
+		5,
+		7,
 		10
 	],
 	"./backend/ManageCourses.js": [
@@ -34423,64 +34422,59 @@ var map = {
 		0,
 		2,
 		3,
-		6,
-		1,
-		4,
+		5,
+		7,
 		10
 	],
 	"./backend/ManageLectures": [
 		"./resources/js/Pages/backend/ManageLectures.js",
 		0,
 		2,
-		3,
-		1,
-		4,
-		11
+		6,
+		5,
+		7,
+		16
 	],
 	"./backend/ManageLectures.js": [
 		"./resources/js/Pages/backend/ManageLectures.js",
 		0,
 		2,
-		3,
-		1,
-		4,
-		11
+		6,
+		5,
+		7,
+		16
 	],
 	"./backend/ManageProgrammes": [
 		"./resources/js/Pages/backend/ManageProgrammes.js",
 		0,
 		2,
-		3,
-		1,
-		4,
-		14
+		5,
+		7,
+		18
 	],
 	"./backend/ManageProgrammes.js": [
 		"./resources/js/Pages/backend/ManageProgrammes.js",
 		0,
 		2,
-		3,
-		1,
-		4,
-		14
+		5,
+		7,
+		18
 	],
 	"./backend/Programmes": [
 		"./resources/js/Pages/backend/Programmes.js",
 		0,
-		2,
+		9,
+		4,
 		5,
-		7,
-		1,
-		9
+		1
 	],
 	"./backend/Programmes.js": [
 		"./resources/js/Pages/backend/Programmes.js",
 		0,
-		2,
+		9,
+		4,
 		5,
-		7,
-		1,
-		9
+		1
 	]
 };
 function webpackAsyncContext(req) {
