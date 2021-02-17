@@ -123,6 +123,30 @@ const UploadFile = ({ btnText = "upload" }) => {
 
     return (
         <div className={(classes.width, "upload-box")}>
+            <input
+                accept="/*"
+                className={classes.input}
+                id="contained-button-file"
+                multiple
+                type="file"
+                disabled={isUploading}
+                onChange={handleChange}
+            />
+            <label htmlFor="contained-button-file">
+                <Button
+                    variant="contained"
+                    color="primary"
+                    component="span"
+                    disabled={isUploading}
+                    className="upload-file-btn"
+                >
+                    <CloudUploadOutlinedIcon />
+                    <span className="upload-file-btn-text">{btnText}</span>
+                </Button>
+                <p className="upload-file-name">
+                    {file && `${file.name.substr(0, 50)}...`}
+                </p>
+            </label>
             {fileProgress && (
                 <Box display="flex" alignItems="center">
                     <Box width="100%" mr={1}>
@@ -139,29 +163,6 @@ const UploadFile = ({ btnText = "upload" }) => {
                     </Box>
                 </Box>
             )}
-            <input
-                accept="/*"
-                className={classes.input}
-                id="contained-button-file"
-                multiple
-                type="file"
-                disabled={isUploading}
-                onChange={handleChange}
-            />
-            <label htmlFor="contained-button-file">
-                <Button
-                    variant="contained"
-                    color="primary"
-                    component="span"
-                    disabled={isUploading}
-                >
-                    <CloudUploadOutlinedIcon />
-                    <span className="upload-file-btn-text">{btnText}</span>
-                </Button>
-                <p className="upload-file-name">
-                    {file && `${file.name.substr(0, 50)}...`}
-                </p>
-            </label>
         </div>
     );
 };

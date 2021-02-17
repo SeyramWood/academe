@@ -29,6 +29,12 @@ import FormControl from "@material-ui/core/FormControl";
 import { Puff } from "./Spinner";
 import useFormValidation from "./form/useFormValidation";
 import SnackbarAlert from "./SnackbarAlert";
+import UploadFile from "./UploadFile";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import CloudUploadOutlinedIcon from "@material-ui/icons/CloudUploadOutlined";
 
 function createData(id, name, year_1, year_2, year_3) {
     return { id, name, year_1, year_2, year_3 };
@@ -181,7 +187,11 @@ const useToolbarStyles = makeStyles(theme => ({
     title: {
         flex: "1 1 100%"
     },
-    formWith: { width: "30rem" }
+    formWith: { width: "30rem" },
+    width: { width: "100%" },
+    input: {
+        display: "none"
+    }
 }));
 
 const programmeState = {
@@ -195,7 +205,7 @@ const programmeState = {
 
 const EnhancedTableToolbar = props => {
     const classes = useToolbarStyles();
-    const { numSelected, selected, clearSelected } = props;
+    const { numSelected, selected, clearSelected, allCourses } = props;
 
     const [openAlert, setOpenAlert] = React.useState(false);
     const [alertMessage, setAlertMessage] = React.useState(false);
@@ -306,7 +316,7 @@ const EnhancedTableToolbar = props => {
                 )}
             </Toolbar>
             <DialogComponent
-                title="Add New Program"
+                title="Add New Lecture"
                 btnText="Add"
                 openDialog={openAddProgramDialog}
                 closeDialog={handleAddProgramDialogClose}
@@ -319,12 +329,13 @@ const EnhancedTableToolbar = props => {
                     className={classes.formWith}
                     onSubmit={handleSubmit}
                 >
+                    <UploadFile btnText="upload video" />
                     <FormLabel component="legend" className="my-3" required>
-                        Enter Programme
+                        Enter Title
                     </FormLabel>
                     <FormControl fullWidth variant="outlined">
                         <TextField
-                            label="Programme"
+                            label="Lecture Title"
                             id="course-title"
                             variant="filled"
                             size="small"
@@ -343,6 +354,68 @@ const EnhancedTableToolbar = props => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
+                    </FormControl>
+                    <FormLabel component="legend" className="my-3" required>
+                        Select Course
+                    </FormLabel>
+                    <FormControl variant="filled" fullWidth>
+                        <InputLabel
+                            id="demo-simple-select-filled-label"
+                            className={
+                                errors.programme && errors.programme.length > 0
+                                    ? "error"
+                                    : ""
+                            }
+                        >
+                            Course
+                        </InputLabel>
+                        <Select
+                            labelId="demo-simple-select-filled-label"
+                            id="demo-simple-select-filled"
+                            name="programme"
+                            error={
+                                errors.programme &&
+                                errors.programme.length > 0 &&
+                                true
+                            }
+                            value={values.programme}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                        >
+                            {allCourses.map(c => (
+                                <MenuItem value={c.id} key={c.id.toString()}>
+                                    {c.title}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                        <FormHelperText className="error">
+                            {errors.programme}
+                        </FormHelperText>
+                    </FormControl>
+                    <FormLabel component="legend" className="my-3" required>
+                        Documents
+                    </FormLabel>
+                    <FormControl fullWidth variant="outlined">
+                        <input
+                            accept="/*"
+                            className={classes.input}
+                            id="contained-button-file"
+                            multiple
+                            type="file"
+                        />
+                        <label htmlFor="contained-button-file">
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                component="span"
+                                className="upload-file-btn"
+                            >
+                                <CloudUploadOutlinedIcon />
+                                <span className="upload-file-btn-text">
+                                    Add cocuments
+                                </span>
+                            </Button>
+                        </label>
                     </FormControl>
 
                     <FormLabel component="legend" className="my-3">
@@ -401,6 +474,7 @@ const useStyles = makeStyles(theme => ({
 
 const AllLecturesView = ({
     programmes,
+    courses,
     getProgrammeToUpdate,
     deleteProgramme
 }) => {
@@ -473,6 +547,7 @@ const AllLecturesView = ({
                     numSelected={selected.length}
                     selected={selected}
                     clearSelected={clearSelected}
+                    allCourses={courses}
                 />
                 <TableContainer>
                     <Table

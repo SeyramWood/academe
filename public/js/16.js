@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[16],{
 
-/***/ "./resources/js/Pages/backend/ManageLectures.js":
-/*!******************************************************!*\
-  !*** ./resources/js/Pages/backend/ManageLectures.js ***!
-  \******************************************************/
+/***/ "./resources/js/Pages/backend/ManageProgrammes.js":
+/*!********************************************************!*\
+  !*** ./resources/js/Pages/backend/ManageProgrammes.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _layouts_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../layouts/Dashboard */ "./resources/js/layouts/Dashboard.js");
-/* harmony import */ var _components_AllLecturesView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/AllLecturesView */ "./resources/js/components/AllLecturesView.js");
+/* harmony import */ var _components_AllProgrammesView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/AllProgrammesView */ "./resources/js/components/AllProgrammesView.js");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
 /* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormLabel */ "./node_modules/@material-ui/core/esm/FormLabel/index.js");
@@ -24,7 +24,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_DialogComponet__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/DialogComponet */ "./resources/js/components/DialogComponet.js");
 /* harmony import */ var _components_Spinner__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/Spinner */ "./resources/js/components/Spinner.js");
 /* harmony import */ var _components_SnackbarAlert__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../components/SnackbarAlert */ "./resources/js/components/SnackbarAlert.js");
-/* harmony import */ var _components_UploadFile__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../components/UploadFile */ "./resources/js/components/UploadFile.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -38,7 +37,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -69,26 +67,31 @@ var useToolbarStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_
   };
 });
 
-var ManageLectures = function ManageLectures(_ref) {
+var ManageProgrammes = function ManageProgrammes(_ref) {
   var _React$createElement;
 
   var programmes = _ref.programmes;
   var classes = useToolbarStyles();
 
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(),
       _React$useState2 = _slicedToArray(_React$useState, 2),
-      openUpdateProgrammeDialog = _React$useState2[0],
-      setUpdateProgrammeDialog = _React$useState2[1];
+      programmeId = _React$useState2[0],
+      setProgrammeId = _React$useState2[1];
 
   var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
-      openAlert = _React$useState4[0],
-      setOpenAlert = _React$useState4[1];
+      openUpdateProgrammeDialog = _React$useState4[0],
+      setUpdateProgrammeDialog = _React$useState4[1];
 
   var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
       _React$useState6 = _slicedToArray(_React$useState5, 2),
-      alertMessage = _React$useState6[0],
-      setAlertMessage = _React$useState6[1];
+      openAlert = _React$useState6[0],
+      setOpenAlert = _React$useState6[1];
+
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
+      _React$useState8 = _slicedToArray(_React$useState7, 2),
+      alertMessage = _React$useState8[0],
+      setAlertMessage = _React$useState8[1];
 
   var _useFormValidation = Object(_components_form_useFormValidation__WEBPACK_IMPORTED_MODULE_9__["default"])(programmeState.STATE, programmeState.RULES, updateProgramme),
       values = _useFormValidation.state,
@@ -147,9 +150,7 @@ var ManageLectures = function ManageLectures(_ref) {
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_UploadFile__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    btnText: "upload video"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_AllLecturesView__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_AllProgrammesView__WEBPACK_IMPORTED_MODULE_3__["default"], {
     programmes: programmes,
     getProgrammeToUpdate: getProgrammeToUpdate,
     deleteProgramme: deleteProgramme
@@ -199,20 +200,20 @@ var ManageLectures = function ManageLectures(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, isSubmitting ? "Submitting..." : "Submit"))))));
 };
 
-ManageLectures.layout = function (page) {
+ManageProgrammes.layout = function (page) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: page
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (ManageLectures);
+/* harmony default export */ __webpack_exports__["default"] = (ManageProgrammes);
 
 /***/ }),
 
-/***/ "./resources/js/components/AllLecturesView.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/AllLecturesView.js ***!
-  \****************************************************/
+/***/ "./resources/js/components/AllProgrammesView.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/AllProgrammesView.js ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -549,15 +550,15 @@ var EnhancedTableToolbar = function EnhancedTableToolbar(props) {
     component: "div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
     className: "secondary"
-  }, "All Lectures")), numSelected > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_18__["default"], {
+  }, "All Programmes")), numSelected > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_18__["default"], {
     title: "Delete"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_17__["default"], {
     "aria-label": "delete",
     onClick: deleteCourses
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_21___default.a, null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_18__["default"], {
-    title: "Upload new lecture"
+    title: "Add new program"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_17__["default"], {
-    "aria-label": "Upload new lecture",
+    "aria-label": "add new program",
     color: "primary",
     onClick: handleAddProgramDialogOpen
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_AddOutlined__WEBPACK_IMPORTED_MODULE_20___default.a, null))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_DialogComponet__WEBPACK_IMPORTED_MODULE_23__["default"], {
@@ -633,7 +634,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["ma
   };
 });
 
-var AllLecturesView = function AllLecturesView(_ref) {
+var AllProgramsView = function AllProgramsView(_ref) {
   var programmes = _ref.programmes,
       getProgrammeToUpdate = _ref.getProgrammeToUpdate,
       deleteProgramme = _ref.deleteProgramme;
@@ -797,264 +798,7 @@ var AllLecturesView = function AllLecturesView(_ref) {
   })));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (AllLecturesView);
-
-/***/ }),
-
-/***/ "./resources/js/components/UploadFile.js":
-/*!***********************************************!*\
-  !*** ./resources/js/components/UploadFile.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js");
-/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/IconButton */ "./node_modules/@material-ui/core/esm/IconButton/index.js");
-/* harmony import */ var _material_ui_icons_PhotoCamera__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/icons/PhotoCamera */ "./node_modules/@material-ui/icons/PhotoCamera.js");
-/* harmony import */ var _material_ui_icons_PhotoCamera__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_PhotoCamera__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _material_ui_icons_CloudUploadOutlined__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/CloudUploadOutlined */ "./node_modules/@material-ui/icons/CloudUploadOutlined.js");
-/* harmony import */ var _material_ui_icons_CloudUploadOutlined__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_CloudUploadOutlined__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_LinearProgress__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/LinearProgress */ "./node_modules/@material-ui/core/esm/LinearProgress/index.js");
-/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
-/* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/Box */ "./node_modules/@material-ui/core/esm/Box/index.js");
-/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(function (theme) {
-  return {
-    root: {
-      "& > *": {
-        margin: theme.spacing(1)
-      }
-    },
-    width: {
-      width: "100%"
-    },
-    input: {
-      display: "none"
-    }
-  };
-});
-
-function chunksReducer(state, action) {
-  switch (action.type) {
-    case "appendChunks":
-      return [].concat(_toConsumableArray(state), [action.blob]);
-
-    case "shiftChunks":
-      state.shift();
-      return state;
-
-    case "clearChunks":
-      return [];
-
-    default:
-      return state;
-  }
-}
-
-var UploadFile = function UploadFile(_ref) {
-  var _ref$btnText = _ref.btnText,
-      btnText = _ref$btnText === void 0 ? "upload" : _ref$btnText;
-  var classes = useStyles();
-
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(undefined),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      file = _React$useState2[0],
-      setFile = _React$useState2[1];
-
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(0),
-      _React$useState4 = _slicedToArray(_React$useState3, 2),
-      chunksCounter = _React$useState4[0],
-      setChunksCounter = _React$useState4[1];
-
-  var _React$useReducer = react__WEBPACK_IMPORTED_MODULE_1___default.a.useReducer(chunksReducer, []),
-      _React$useReducer2 = _slicedToArray(_React$useReducer, 2),
-      chunks = _React$useReducer2[0],
-      dispatch = _React$useReducer2[1];
-
-  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(0),
-      _React$useState6 = _slicedToArray(_React$useState5, 2),
-      chunkSize = _React$useState6[0],
-      setChunkSize = _React$useState6[1];
-
-  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(0),
-      _React$useState8 = _slicedToArray(_React$useState7, 2),
-      uploaded = _React$useState8[0],
-      setUploaded = _React$useState8[1];
-
-  var _React$useState9 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
-      _React$useState10 = _slicedToArray(_React$useState9, 2),
-      fileProgress = _React$useState10[0],
-      setFileProgress = _React$useState10[1];
-
-  var _React$useState11 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
-      _React$useState12 = _slicedToArray(_React$useState11, 2),
-      isUploading = _React$useState12[0],
-      setIsUploading = _React$useState12[1];
-
-  var initialRender = react__WEBPACK_IMPORTED_MODULE_1___default.a.useRef(true);
-  var config = {
-    headers: {
-      "Content-Type": "application/octet-stream"
-    },
-    onUploadProgress: function onUploadProgress(event) {
-      if (parseInt(event.loaded / event.total * 100) === 100) {
-        setUploaded(function (uploaded) {
-          return uploaded += parseFloat(100 / chunkSize);
-        });
-      }
-    }
-  };
-
-  var upload = function upload(data) {
-    axios__WEBPACK_IMPORTED_MODULE_2___default.a.post("/dashboard/upload", data, config).then(function (res) {
-      if (res.data.uploaded) {
-        setIsUploading(false);
-        dispatch({
-          type: "clearChunks"
-        });
-        setChunksCounter(0);
-      } else {
-        if (!res.data.exist) {
-          dispatch({
-            type: "shiftChunks"
-          });
-          setChunksCounter(function (chunksCounter) {
-            return chunksCounter - 1;
-          });
-        } else {
-          setIsUploading(false);
-          dispatch({
-            type: "clearChunks"
-          });
-          setChunksCounter(0);
-        }
-      }
-    })["catch"](function (err) {
-      console.log(err);
-    });
-  };
-
-  var handleChange = function handleChange(e) {
-    e.preventDefault();
-    var _file = e.target.files[0];
-    setFile(undefined);
-    dispatch({
-      type: "clearChunks"
-    });
-    setChunkSize(0);
-    setUploaded(0);
-    setFile(_file);
-    var size = 1048576 * 3; // 3mb;
-
-    setChunkSize(Math.ceil(_file.size / size));
-    setChunksCounter(Math.ceil(_file.size / size));
-    var chunkSize = Math.ceil(_file.size / size);
-
-    for (var i = 0; i < chunkSize; i++) {
-      var blob = _file.slice(i * size, Math.min(i * size + size, _file.size), _file.type);
-
-      dispatch({
-        type: "appendChunks",
-        blob: blob
-      });
-    }
-
-    setFileProgress(true);
-    setIsUploading(true);
-  };
-
-  react__WEBPACK_IMPORTED_MODULE_1___default.a.useEffect(function () {
-    if (initialRender.current) {
-      initialRender.current = false;
-    } else {
-      if (chunksCounter > 0) {
-        var formData = new FormData();
-        formData.set("is_last", chunks.length === 1);
-        formData.set("file", chunks[0], "".concat(file.name, ".part"));
-        upload(formData);
-      }
-    }
-  }, [chunksCounter]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: (classes.width, "upload-box")
-  }, fileProgress && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    display: "flex",
-    alignItems: "center"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    width: "100%",
-    mr: 1
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_LinearProgress__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    variant: "determinate",
-    value: uploaded
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    minWidth: 35
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_9__["default"], {
-    variant: "body2",
-    color: "textSecondary"
-  }, "".concat(Math.round(uploaded), "%")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-    accept: "/*",
-    className: classes.input,
-    id: "contained-button-file",
-    multiple: true,
-    type: "file",
-    disabled: isUploading,
-    onChange: handleChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-    htmlFor: "contained-button-file"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    variant: "contained",
-    color: "primary",
-    component: "span",
-    disabled: isUploading
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_CloudUploadOutlined__WEBPACK_IMPORTED_MODULE_7___default.a, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "upload-file-btn-text"
-  }, btnText)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-    className: "upload-file-name"
-  }, file && "".concat(file.name.substr(0, 50), "..."))));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (UploadFile);
+/* harmony default export */ __webpack_exports__["default"] = (AllProgramsView);
 
 /***/ })
 

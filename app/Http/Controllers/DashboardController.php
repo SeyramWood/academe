@@ -39,6 +39,6 @@ class DashboardController extends Controller
     }
     public function manageLectures()
     {
-        return inertia('backend/ManageLectures', ['programmes' => Programme::all(),]);
+        return inertia('backend/ManageLectures', ['programmes' => Programme::all(), 'courses' => $this->getCourses(),]);
     }
 }

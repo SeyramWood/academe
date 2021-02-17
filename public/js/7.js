@@ -1,488 +1,453 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[7],{
 
-/***/ "./resources/js/components/DialogComponet.js":
-/*!***************************************************!*\
-  !*** ./resources/js/components/DialogComponet.js ***!
-  \***************************************************/
-/*! exports provided: default */
+/***/ "./node_modules/@material-ui/core/esm/Box/Box.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Box/Box.js ***!
+  \*******************************************************/
+/*! exports provided: styleFunction, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_core_Dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/Dialog */ "./node_modules/@material-ui/core/esm/Dialog/index.js");
-/* harmony import */ var _material_ui_core_DialogActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/DialogActions */ "./node_modules/@material-ui/core/esm/DialogActions/index.js");
-/* harmony import */ var _material_ui_core_DialogContent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/DialogContent */ "./node_modules/@material-ui/core/esm/DialogContent/index.js");
-/* harmony import */ var _material_ui_core_DialogTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/DialogTitle */ "./node_modules/@material-ui/core/esm/DialogTitle/index.js");
-/* harmony import */ var _material_ui_core_Slide__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js");
-/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/IconButton */ "./node_modules/@material-ui/core/esm/IconButton/index.js");
-/* harmony import */ var _material_ui_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/icons/CloseOutlined */ "./node_modules/@material-ui/icons/CloseOutlined.js");
-/* harmony import */ var _material_ui_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Tooltip */ "./node_modules/@material-ui/core/esm/Tooltip/index.js");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styleFunction", function() { return styleFunction; });
+/* harmony import */ var _material_ui_system__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @material-ui/system */ "./node_modules/@material-ui/system/esm/index.js");
+/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/styled */ "./node_modules/@material-ui/core/esm/styles/styled.js");
 
 
+var styleFunction = Object(_material_ui_system__WEBPACK_IMPORTED_MODULE_0__["css"])(Object(_material_ui_system__WEBPACK_IMPORTED_MODULE_0__["compose"])(_material_ui_system__WEBPACK_IMPORTED_MODULE_0__["borders"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["display"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["flexbox"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["grid"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["positions"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["palette"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["shadows"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["sizing"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["spacing"], _material_ui_system__WEBPACK_IMPORTED_MODULE_0__["typography"]));
+/**
+ * @ignore - do not document.
+ */
 
-
-
-
-
-
-
-
-var Transition = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.forwardRef(function Transition(props, ref) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Slide__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({
-    direction: "up",
-    ref: ref
-  }, props));
+var Box = Object(_styles_styled__WEBPACK_IMPORTED_MODULE_1__["default"])('div')(styleFunction, {
+  name: 'MuiBox'
 });
-
-var DialogComponent = function DialogComponent(_ref) {
-  var openDialog = _ref.openDialog,
-      closeDialog = _ref.closeDialog,
-      title = _ref.title,
-      children = _ref.children;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Dialog__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    open: openDialog,
-    TransitionComponent: Transition,
-    keepMounted: true,
-    "aria-labelledby": "alert-dialog-slide-title",
-    "aria-describedby": "alert-dialog-slide-description"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_DialogTitle__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    id: "alert-dialog-slide-title"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "dialog-title"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_8__["default"], {
-    title: "Close dialog"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    color: "secondary",
-    onClick: function onClick() {
-      return closeDialog();
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_CloseOutlined__WEBPACK_IMPORTED_MODULE_7___default.a, null)))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_DialogContent__WEBPACK_IMPORTED_MODULE_3__["default"], null, children)));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (DialogComponent);
+/* harmony default export */ __webpack_exports__["default"] = (Box);
 
 /***/ }),
 
-/***/ "./resources/js/components/SnackbarAlert.js":
-/*!**************************************************!*\
-  !*** ./resources/js/components/SnackbarAlert.js ***!
-  \**************************************************/
-/*! exports provided: default */
+/***/ "./node_modules/@material-ui/core/esm/Box/index.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Box/index.js ***!
+  \*********************************************************/
+/*! exports provided: default, styleFunction */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _material_ui_lab_Alert__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/lab/Alert */ "./node_modules/@material-ui/lab/esm/Alert/index.js");
-/* harmony import */ var _material_ui_core_Snackbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Snackbar */ "./node_modules/@material-ui/core/esm/Snackbar/index.js");
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+/* harmony import */ var _Box__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Box */ "./node_modules/@material-ui/core/esm/Box/Box.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Box__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-
-
-
-
-function Alert(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab_Alert__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({
-    elevation: 6,
-    variant: "filled"
-  }, props));
-}
-
-var SnackbarAlert = function SnackbarAlert(_ref) {
-  var _ref$message = _ref.message,
-      message = _ref$message === void 0 ? "Alert" : _ref$message,
-      _ref$type = _ref.type,
-      type = _ref$type === void 0 ? "success" : _ref$type,
-      _ref$openAlert = _ref.openAlert,
-      openAlert = _ref$openAlert === void 0 ? false : _ref$openAlert;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Snackbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    anchorOrigin: {
-      vertical: "top",
-      horizontal: "right"
-    },
-    open: openAlert
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Alert, {
-    severity: type
-  }, message));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (SnackbarAlert);
-
-/***/ }),
-
-/***/ "./resources/js/components/Spinner.js":
-/*!********************************************!*\
-  !*** ./resources/js/components/Spinner.js ***!
-  \********************************************/
-/*! exports provided: Puff, Rings, Oval, BallTriangle */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Puff", function() { return Puff; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rings", function() { return Rings; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Oval", function() { return Oval; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BallTriangle", function() { return BallTriangle; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_loader_spinner_dist_loader_css_react_spinner_loader_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-loader-spinner/dist/loader/css/react-spinner-loader.css */ "./node_modules/react-loader-spinner/dist/loader/css/react-spinner-loader.css");
-/* harmony import */ var react_loader_spinner_dist_loader_css_react_spinner_loader_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_loader_spinner_dist_loader_css_react_spinner_loader_css__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_loader_spinner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-loader-spinner */ "./node_modules/react-loader-spinner/dist/index.js");
-/* harmony import */ var react_loader_spinner__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_loader_spinner__WEBPACK_IMPORTED_MODULE_2__);
-
-
-
-
-var Puff = function Puff(_ref) {
-  var _ref$size = _ref.size,
-      size = _ref$size === void 0 ? 25 : _ref$size,
-      _ref$color = _ref.color,
-      color = _ref$color === void 0 ? "#919191" : _ref$color,
-      _ref$visible = _ref.visible,
-      visible = _ref$visible === void 0 ? true : _ref$visible;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loader_spinner__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    type: "Puff",
-    color: color,
-    height: size,
-    width: size,
-    visible: visible
-  });
-};
-
-var Rings = function Rings(_ref2) {
-  var _ref2$size = _ref2.size,
-      size = _ref2$size === void 0 ? 25 : _ref2$size,
-      _ref2$color = _ref2.color,
-      color = _ref2$color === void 0 ? "#919191" : _ref2$color,
-      _ref2$visible = _ref2.visible,
-      visible = _ref2$visible === void 0 ? true : _ref2$visible;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loader_spinner__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    type: "Rings",
-    color: color,
-    height: size,
-    width: size,
-    visible: visible
-  });
-};
-
-var Oval = function Oval(_ref3) {
-  var _ref3$size = _ref3.size,
-      size = _ref3$size === void 0 ? 25 : _ref3$size,
-      _ref3$color = _ref3.color,
-      color = _ref3$color === void 0 ? "#919191" : _ref3$color,
-      _ref3$visible = _ref3.visible,
-      visible = _ref3$visible === void 0 ? true : _ref3$visible;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loader_spinner__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    type: "Oval",
-    color: color,
-    height: size,
-    width: size,
-    visible: visible
-  });
-};
-
-var BallTriangle = function BallTriangle(_ref4) {
-  var _ref4$size = _ref4.size,
-      size = _ref4$size === void 0 ? 25 : _ref4$size,
-      _ref4$color = _ref4.color,
-      color = _ref4$color === void 0 ? "#919191" : _ref4$color,
-      _ref4$visible = _ref4.visible,
-      visible = _ref4$visible === void 0 ? true : _ref4$visible;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_loader_spinner__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    type: "BallTriangle",
-    color: color,
-    height: size,
-    width: size,
-    visible: visible
-  });
-};
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "styleFunction", function() { return _Box__WEBPACK_IMPORTED_MODULE_0__["styleFunction"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/form/useFormValidation.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/components/form/useFormValidation.js ***!
-  \***********************************************************/
-/*! exports provided: default */
+/***/ "./node_modules/@material-ui/core/esm/LinearProgress/LinearProgress.js":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/LinearProgress/LinearProgress.js ***!
+  \*****************************************************************************/
+/*! exports provided: styles, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _validateForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./validateForm */ "./resources/js/components/form/validateForm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ "./node_modules/@material-ui/core/esm/utils/capitalize.js");
+/* harmony import */ var _styles_withStyles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/withStyles */ "./node_modules/@material-ui/core/esm/styles/withStyles.js");
+/* harmony import */ var _styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/colorManipulator */ "./node_modules/@material-ui/core/esm/styles/colorManipulator.js");
+/* harmony import */ var _styles_useTheme__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/useTheme */ "./node_modules/@material-ui/core/esm/styles/useTheme.js");
 
 
 
 
-function useFormValidation(initialState, validationRules, callBack) {
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(initialState),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      state = _React$useState2[0],
-      setState = _React$useState2[1];
 
-  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState({}),
-      _React$useState4 = _slicedToArray(_React$useState3, 2),
-      errors = _React$useState4[0],
-      setErrors = _React$useState4[1];
 
-  var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
-      _React$useState6 = _slicedToArray(_React$useState5, 2),
-      isSubmitting = _React$useState6[0],
-      setIsSubmitting = _React$useState6[1];
 
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.useEffect(function () {
-    if (isSubmitting) {
-      var noErrors;
-      Object.values(errors).forEach(function (err) {
-        noErrors = err.length === 0;
-      });
 
-      if (noErrors) {
-        callBack();
-        setErrors({});
-        setTimeout(function () {
-          setIsSubmitting(false);
-        }, 1000);
-      } else {
-        setTimeout(function () {
-          setIsSubmitting(false);
-        }, 1000);
-      }
-    }
-  }, [errors, isSubmitting, callBack]);
 
-  var handleChange = function handleChange(e) {
-    var _e$target = e.target,
-        name = _e$target.name,
-        value = _e$target.value,
-        type = _e$target.type,
-        checked = _e$target.checked;
-    type === "checkbox" ? setState(_objectSpread(_objectSpread({}, state), {}, _defineProperty({}, name, checked))) : setState(_objectSpread(_objectSpread({}, state), {}, _defineProperty({}, name, value)));
+var TRANSITION_DURATION = 4; // seconds
+
+var styles = function styles(theme) {
+  var getColor = function getColor(color) {
+    return theme.palette.type === 'light' ? Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__["lighten"])(color, 0.62) : Object(_styles_colorManipulator__WEBPACK_IMPORTED_MODULE_7__["darken"])(color, 0.5);
   };
 
-  var handleBlur = function handleBlur() {
-    setErrors(Object(_validateForm__WEBPACK_IMPORTED_MODULE_1__["default"])(state, validationRules));
-  };
-
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    setErrors({});
-    setIsSubmitting(true);
-    setTimeout(function () {
-      setErrors(Object(_validateForm__WEBPACK_IMPORTED_MODULE_1__["default"])(state, validationRules));
-    }, 500);
-  };
-
-  var clearValues = function clearValues() {
-    var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-    if (action) {
-      setState(initialState);
-      setErrors({});
-    }
-  };
-
-  var setValues = function setValues() {
-    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    if (Object.keys(data).length > 0) {
-      setState(_objectSpread(_objectSpread({}, state), data));
-    }
-  };
-
-  var setServerErrors = function setServerErrors() {
-    var err = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    if (Object.keys(err).length > 0) {
-      setErrors(_objectSpread(_objectSpread({}, errors), err));
-    }
-  };
-
+  var backgroundPrimary = getColor(theme.palette.primary.main);
+  var backgroundSecondary = getColor(theme.palette.secondary.main);
   return {
-    handleChange: handleChange,
-    handleBlur: handleBlur,
-    handleSubmit: handleSubmit,
-    isSubmitting: isSubmitting,
-    errors: errors,
-    state: state,
-    clearValues: clearValues,
-    setValues: setValues,
-    setServerErrors: setServerErrors
-  };
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (useFormValidation);
-
-/***/ }),
-
-/***/ "./resources/js/components/form/validateForm.js":
-/*!******************************************************!*\
-  !*** ./resources/js/components/form/validateForm.js ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _validationRules__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./validationRules */ "./resources/js/components/form/validationRules.js");
-
-
-var decamelize = function decamelize(str, separator) {
-  separator = typeof separator === "undefined" ? " " : separator;
-  return str.replace(/([a-z\d])([A-Z])/g, "$1" + separator + "$2").replace(/([A-Z]+)([A-Z][a-z\d]+)/g, "$1" + separator + "$2").toLowerCase();
-};
-
-var validateForm = function validateForm(values, rules) {
-  var errors = {};
-
-  for (var ruleKey in rules) {
-    var _loop = function _loop(valueKey) {
-      if (ruleKey === valueKey) {
-        errors["".concat(valueKey)] = [];
-        var rulesArray = rules[ruleKey].split("|");
-        rulesArray.forEach(function (rule) {
-          var mainRule = "";
-          var mainRuleMessage = "";
-
-          if (rule.includes(">")) {
-            mainRule = rule.split(">")[0];
-            mainRuleMessage = rule.split(">")[1];
-          } else {
-            mainRule = rule;
-          }
-
-          if (mainRule === "required" && !values[valueKey]) {
-            mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " field is required"));
-          } else if (values[valueKey]) {
-            if (mainRule === "alpha" && !Object(_validationRules__WEBPACK_IMPORTED_MODULE_0__["testAlpha"])(values[valueKey])) {
-              mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " field must be alphabetic characters"));
-            }
-
-            if (mainRule === "alpha_num" && !Object(_validationRules__WEBPACK_IMPORTED_MODULE_0__["testAlphaNum"])(values[valueKey])) {
-              mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " field must be alphanumeric"));
-            }
-
-            if (mainRule === "alpha_dash" && !Object(_validationRules__WEBPACK_IMPORTED_MODULE_0__["testAlphaDash"])(values[valueKey])) {
-              mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " field must be alphanumeric with dashes or underscore"));
-            }
-
-            if (mainRule === "string" && !Object(_validationRules__WEBPACK_IMPORTED_MODULE_0__["testString"])(values[valueKey])) {
-              mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " field must be string"));
-            }
-
-            if (mainRule === "numeric" && !Object(_validationRules__WEBPACK_IMPORTED_MODULE_0__["testNumeric"])(values[valueKey])) {
-              mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " field must be numeric"));
-            }
-
-            if (mainRule === "email" && !Object(_validationRules__WEBPACK_IMPORTED_MODULE_0__["testEmail"])(values[valueKey])) {
-              mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " field must be a valid email"));
-            }
-
-            if (mainRule.includes(":")) {
-              var key = mainRule.split(":")[0];
-              var value = mainRule.split(":")[1];
-
-              switch (key.toLowerCase()) {
-                case "min":
-                  if (values[valueKey].length < parseInt(value)) {
-                    mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " must be ").concat(value, " characters minimum"));
-                  }
-
-                  break;
-
-                case "max":
-                  if (values[valueKey].length > parseInt(value)) {
-                    mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " must be ").concat(value, " characters maximum"));
-                  }
-
-                  break;
-
-                case "match":
-                  if (values[valueKey] !== values[value]) {
-                    mainRuleMessage.length > 0 ? errors["".concat(valueKey)].push(mainRuleMessage) : errors["".concat(valueKey)].push("The ".concat(decamelize(valueKey), " dose not match ").concat(value));
-                  }
-
-                  break;
-
-                default:
-                  break;
-              }
-            }
-          }
-        });
+    /* Styles applied to the root element. */
+    root: {
+      position: 'relative',
+      overflow: 'hidden',
+      height: 4,
+      '@media print': {
+        colorAdjust: 'exact'
       }
-    };
+    },
 
-    for (var valueKey in values) {
-      _loop(valueKey);
+    /* Styles applied to the root and bar2 element if `color="primary"`; bar2 if `variant="buffer"`. */
+    colorPrimary: {
+      backgroundColor: backgroundPrimary
+    },
+
+    /* Styles applied to the root and bar2 elements if `color="secondary"`; bar2 if `variant="buffer"`. */
+    colorSecondary: {
+      backgroundColor: backgroundSecondary
+    },
+
+    /* Styles applied to the root element if `variant="determinate"`. */
+    determinate: {},
+
+    /* Styles applied to the root element if `variant="indeterminate"`. */
+    indeterminate: {},
+
+    /* Styles applied to the root element if `variant="buffer"`. */
+    buffer: {
+      backgroundColor: 'transparent'
+    },
+
+    /* Styles applied to the root element if `variant="query"`. */
+    query: {
+      transform: 'rotate(180deg)'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"`. */
+    dashed: {
+      position: 'absolute',
+      marginTop: 0,
+      height: '100%',
+      width: '100%',
+      animation: '$buffer 3s infinite linear'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"` and `color="primary"`. */
+    dashedColorPrimary: {
+      backgroundImage: "radial-gradient(".concat(backgroundPrimary, " 0%, ").concat(backgroundPrimary, " 16%, transparent 42%)"),
+      backgroundSize: '10px 10px',
+      backgroundPosition: '0 -23px'
+    },
+
+    /* Styles applied to the additional bar element if `variant="buffer"` and `color="secondary"`. */
+    dashedColorSecondary: {
+      backgroundImage: "radial-gradient(".concat(backgroundSecondary, " 0%, ").concat(backgroundSecondary, " 16%, transparent 42%)"),
+      backgroundSize: '10px 10px',
+      backgroundPosition: '0 -23px'
+    },
+
+    /* Styles applied to the layered bar1 and bar2 elements. */
+    bar: {
+      width: '100%',
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
+      top: 0,
+      transition: 'transform 0.2s linear',
+      transformOrigin: 'left'
+    },
+
+    /* Styles applied to the bar elements if `color="primary"`; bar2 if `variant` not "buffer". */
+    barColorPrimary: {
+      backgroundColor: theme.palette.primary.main
+    },
+
+    /* Styles applied to the bar elements if `color="secondary"`; bar2 if `variant` not "buffer". */
+    barColorSecondary: {
+      backgroundColor: theme.palette.secondary.main
+    },
+
+    /* Styles applied to the bar1 element if `variant="indeterminate or query"`. */
+    bar1Indeterminate: {
+      width: 'auto',
+      animation: '$indeterminate1 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite'
+    },
+
+    /* Styles applied to the bar1 element if `variant="determinate"`. */
+    bar1Determinate: {
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+
+    /* Styles applied to the bar1 element if `variant="buffer"`. */
+    bar1Buffer: {
+      zIndex: 1,
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+
+    /* Styles applied to the bar2 element if `variant="indeterminate or query"`. */
+    bar2Indeterminate: {
+      width: 'auto',
+      animation: '$indeterminate2 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite'
+    },
+
+    /* Styles applied to the bar2 element if `variant="buffer"`. */
+    bar2Buffer: {
+      transition: "transform .".concat(TRANSITION_DURATION, "s linear")
+    },
+    // Legends:
+    // || represents the viewport
+    // -  represents a light background
+    // x  represents a dark background
+    '@keyframes indeterminate1': {
+      //  |-----|---x-||-----||-----|
+      '0%': {
+        left: '-35%',
+        right: '100%'
+      },
+      //  |-----|-----||-----||xxxx-|
+      '60%': {
+        left: '100%',
+        right: '-90%'
+      },
+      '100%': {
+        left: '100%',
+        right: '-90%'
+      }
+    },
+    '@keyframes indeterminate2': {
+      //  |xxxxx|xxxxx||-----||-----|
+      '0%': {
+        left: '-200%',
+        right: '100%'
+      },
+      //  |-----|-----||-----||-x----|
+      '60%': {
+        left: '107%',
+        right: '-8%'
+      },
+      '100%': {
+        left: '107%',
+        right: '-8%'
+      }
+    },
+    '@keyframes buffer': {
+      '0%': {
+        opacity: 1,
+        backgroundPosition: '0 -23px'
+      },
+      '50%': {
+        opacity: 0,
+        backgroundPosition: '0 -23px'
+      },
+      '100%': {
+        opacity: 1,
+        backgroundPosition: '-200px -23px'
+      }
+    }
+  };
+};
+/**
+ * ## ARIA
+ *
+ * If the progress bar is describing the loading progress of a particular region of a page,
+ * you should use `aria-describedby` to point to the progress bar, and set the `aria-busy`
+ * attribute to `true` on that region until it has finished loading.
+ */
+
+var LinearProgress = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function LinearProgress(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'primary' : _props$color,
+      value = props.value,
+      valueBuffer = props.valueBuffer,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'indeterminate' : _props$variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "color", "value", "valueBuffer", "variant"]);
+
+  var theme = Object(_styles_useTheme__WEBPACK_IMPORTED_MODULE_8__["default"])();
+  var rootProps = {};
+  var inlineStyles = {
+    bar1: {},
+    bar2: {}
+  };
+
+  if (variant === 'determinate' || variant === 'buffer') {
+    if (value !== undefined) {
+      rootProps['aria-valuenow'] = Math.round(value);
+      rootProps['aria-valuemin'] = 0;
+      rootProps['aria-valuemax'] = 100;
+      var transform = value - 100;
+
+      if (theme.direction === 'rtl') {
+        transform = -transform;
+      }
+
+      inlineStyles.bar1.transform = "translateX(".concat(transform, "%)");
+    } else if (true) {
+      console.error('Material-UI: You need to provide a value prop ' + 'when using the determinate or buffer variant of LinearProgress .');
     }
   }
 
-  return errors;
-};
+  if (variant === 'buffer') {
+    if (valueBuffer !== undefined) {
+      var _transform = (valueBuffer || 0) - 100;
 
-/* harmony default export */ __webpack_exports__["default"] = (validateForm);
+      if (theme.direction === 'rtl') {
+        _transform = -_transform;
+      }
+
+      inlineStyles.bar2.transform = "translateX(".concat(_transform, "%)");
+    } else if (true) {
+      console.error('Material-UI: You need to provide a valueBuffer prop ' + 'when using the buffer variant of LinearProgress.');
+    }
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classes["color".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))], className, {
+      'determinate': classes.determinate,
+      'indeterminate': classes.indeterminate,
+      'buffer': classes.buffer,
+      'query': classes.query
+    }[variant]),
+    role: "progressbar"
+  }, rootProps, {
+    ref: ref
+  }, other), variant === 'buffer' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.dashed, classes["dashedColor".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))])
+  }) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.bar, classes["barColor".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))], (variant === 'indeterminate' || variant === 'query') && classes.bar1Indeterminate, {
+      'determinate': classes.bar1Determinate,
+      'buffer': classes.bar1Buffer
+    }[variant]),
+    style: inlineStyles.bar1
+  }), variant === 'determinate' ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.bar, (variant === 'indeterminate' || variant === 'query') && classes.bar2Indeterminate, variant === 'buffer' ? [classes["color".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))], classes.bar2Buffer] : classes["barColor".concat(Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__["default"])(color))]),
+    style: inlineStyles.bar2
+  }));
+});
+ true ? LinearProgress.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The color of the component. It supports those theme colors that make sense for this component.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['primary', 'secondary']),
+
+  /**
+   * The value of the progress indicator for the determinate and buffer variants.
+   * Value between 0 and 100.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * The value for the buffer variant.
+   * Value between 0 and 100.
+   */
+  valueBuffer: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * The variant to use.
+   * Use indeterminate or query when there is no progress value.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['buffer', 'determinate', 'indeterminate', 'query'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_styles_withStyles__WEBPACK_IMPORTED_MODULE_6__["default"])(styles, {
+  name: 'MuiLinearProgress'
+})(LinearProgress));
 
 /***/ }),
 
-/***/ "./resources/js/components/form/validationRules.js":
-/*!*********************************************************!*\
-  !*** ./resources/js/components/form/validationRules.js ***!
-  \*********************************************************/
-/*! exports provided: testAlpha, testAlphaNum, testString, testAlphaDash, testNumeric, testEmail */
+/***/ "./node_modules/@material-ui/core/esm/LinearProgress/index.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/LinearProgress/index.js ***!
+  \********************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testAlpha", function() { return testAlpha; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testAlphaNum", function() { return testAlphaNum; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testString", function() { return testString; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testAlphaDash", function() { return testAlphaDash; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testNumeric", function() { return testNumeric; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "testEmail", function() { return testEmail; });
-var testAlpha = function testAlpha(value) {
-  return /^[A-Za-z]+$/.test(value);
-};
-var testAlphaNum = function testAlphaNum(value) {
-  return /^[0-9A-Za-z]+$/.test(value);
-};
-var testString = function testString(value) {
-  return /^[0-9A-Za-z ]+$/.test(value);
-};
-var testAlphaDash = function testAlphaDash(value) {
-  return /^[0-9A-Za-z-_]+$/.test(value);
-};
-var testNumeric = function testNumeric(value) {
-  return /^[0-9]+$/.test(value);
-};
-var testEmail = function testEmail(value) {
-  return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(value);
-};
+/* harmony import */ var _LinearProgress__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LinearProgress */ "./node_modules/@material-ui/core/esm/LinearProgress/LinearProgress.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _LinearProgress__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/CloudUploadOutlined.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/CloudUploadOutlined.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3zM8 13h2.55v3h2.9v-3H16l-4-4z"
+}), 'CloudUploadOutlined');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/PhotoCamera.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/PhotoCamera.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("circle", {
+  cx: "12",
+  cy: "12",
+  r: "3.2"
+}), /*#__PURE__*/React.createElement("path", {
+  d: "M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"
+})), 'PhotoCamera');
+
+exports.default = _default;
 
 /***/ })
 

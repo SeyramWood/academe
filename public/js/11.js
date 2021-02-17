@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[11],{
 
-/***/ "./resources/js/Pages/backend/ManageLectures.js":
-/*!******************************************************!*\
-  !*** ./resources/js/Pages/backend/ManageLectures.js ***!
-  \******************************************************/
+/***/ "./resources/js/Pages/backend/ManageProgrammes.js":
+/*!********************************************************!*\
+  !*** ./resources/js/Pages/backend/ManageProgrammes.js ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _layouts_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../layouts/Dashboard */ "./resources/js/layouts/Dashboard.js");
-/* harmony import */ var _components_AllLecturesView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/AllLecturesView */ "./resources/js/components/AllLecturesView.js");
+/* harmony import */ var _components_AllProgrammesView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/AllProgrammesView */ "./resources/js/components/AllProgrammesView.js");
 /* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 /* harmony import */ var _material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js");
 /* harmony import */ var _material_ui_core_FormLabel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/FormLabel */ "./node_modules/@material-ui/core/esm/FormLabel/index.js");
@@ -24,7 +24,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_DialogComponet__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/DialogComponet */ "./resources/js/components/DialogComponet.js");
 /* harmony import */ var _components_Spinner__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../components/Spinner */ "./resources/js/components/Spinner.js");
 /* harmony import */ var _components_SnackbarAlert__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../components/SnackbarAlert */ "./resources/js/components/SnackbarAlert.js");
-/* harmony import */ var _components_uploadFile_UploadFile__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../components/uploadFile/UploadFile */ "./resources/js/components/uploadFile/UploadFile.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
@@ -38,7 +37,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
@@ -69,26 +67,31 @@ var useToolbarStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_
   };
 });
 
-var ManageLectures = function ManageLectures(_ref) {
+var ManageProgrammes = function ManageProgrammes(_ref) {
   var _React$createElement;
 
   var programmes = _ref.programmes;
   var classes = useToolbarStyles();
 
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(),
       _React$useState2 = _slicedToArray(_React$useState, 2),
-      openUpdateProgrammeDialog = _React$useState2[0],
-      setUpdateProgrammeDialog = _React$useState2[1];
+      programmeId = _React$useState2[0],
+      setProgrammeId = _React$useState2[1];
 
   var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
-      openAlert = _React$useState4[0],
-      setOpenAlert = _React$useState4[1];
+      openUpdateProgrammeDialog = _React$useState4[0],
+      setUpdateProgrammeDialog = _React$useState4[1];
 
   var _React$useState5 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
       _React$useState6 = _slicedToArray(_React$useState5, 2),
-      alertMessage = _React$useState6[0],
-      setAlertMessage = _React$useState6[1];
+      openAlert = _React$useState6[0],
+      setOpenAlert = _React$useState6[1];
+
+  var _React$useState7 = react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(false),
+      _React$useState8 = _slicedToArray(_React$useState7, 2),
+      alertMessage = _React$useState8[0],
+      setAlertMessage = _React$useState8[1];
 
   var _useFormValidation = Object(_components_form_useFormValidation__WEBPACK_IMPORTED_MODULE_9__["default"])(programmeState.STATE, programmeState.RULES, updateProgramme),
       values = _useFormValidation.state,
@@ -147,9 +150,7 @@ var ManageLectures = function ManageLectures(_ref) {
     });
   };
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_uploadFile_UploadFile__WEBPACK_IMPORTED_MODULE_13__["default"], {
-    btnText: "upload video"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_AllLecturesView__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_AllProgrammesView__WEBPACK_IMPORTED_MODULE_3__["default"], {
     programmes: programmes,
     getProgrammeToUpdate: getProgrammeToUpdate,
     deleteProgramme: deleteProgramme
@@ -199,20 +200,20 @@ var ManageLectures = function ManageLectures(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, isSubmitting ? "Submitting..." : "Submit"))))));
 };
 
-ManageLectures.layout = function (page) {
+ManageProgrammes.layout = function (page) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_layouts_Dashboard__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: page
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (ManageLectures);
+/* harmony default export */ __webpack_exports__["default"] = (ManageProgrammes);
 
 /***/ }),
 
-/***/ "./resources/js/components/AllLecturesView.js":
-/*!****************************************************!*\
-  !*** ./resources/js/components/AllLecturesView.js ***!
-  \****************************************************/
+/***/ "./resources/js/components/AllProgrammesView.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/AllProgrammesView.js ***!
+  \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -549,15 +550,15 @@ var EnhancedTableToolbar = function EnhancedTableToolbar(props) {
     component: "div"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
     className: "secondary"
-  }, "All Lectures")), numSelected > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_18__["default"], {
+  }, "All Programmes")), numSelected > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_18__["default"], {
     title: "Delete"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_17__["default"], {
     "aria-label": "delete",
     onClick: deleteCourses
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_Delete__WEBPACK_IMPORTED_MODULE_21___default.a, null))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_18__["default"], {
-    title: "Upload new lecture"
+    title: "Add new program"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_17__["default"], {
-    "aria-label": "Upload new lecture",
+    "aria-label": "add new program",
     color: "primary",
     onClick: handleAddProgramDialogOpen
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_material_ui_icons_AddOutlined__WEBPACK_IMPORTED_MODULE_20___default.a, null))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_DialogComponet__WEBPACK_IMPORTED_MODULE_23__["default"], {
@@ -633,7 +634,7 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["ma
   };
 });
 
-var AllLecturesView = function AllLecturesView(_ref) {
+var AllProgramsView = function AllProgramsView(_ref) {
   var programmes = _ref.programmes,
       getProgrammeToUpdate = _ref.getProgrammeToUpdate,
       deleteProgramme = _ref.deleteProgramme;
@@ -797,18 +798,7 @@ var AllLecturesView = function AllLecturesView(_ref) {
   })));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (AllLecturesView);
-
-/***/ }),
-
-/***/ "./resources/js/components/uploadFile/UploadFile.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/components/uploadFile/UploadFile.js ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Seyram\\Desktop\\l8\\academe\\resources\\js\\components\\uploadFile\\UploadFile.js'");
+/* harmony default export */ __webpack_exports__["default"] = (AllProgramsView);
 
 /***/ })
 

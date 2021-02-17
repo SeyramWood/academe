@@ -192,6 +192,10 @@ div[x-placement] {
   align-items: center;
 }
 
+.upload-file-btn {
+  margin-right: 1rem;
+}
+
 .upload-file-btn-text {
   padding-left: 1rem;
 }
@@ -199,7 +203,6 @@ div[x-placement] {
 .upload-file-name {
   display: inline-block;
   width: 80%;
-  padding-left: 1rem;
 }
 
 .toolbar {

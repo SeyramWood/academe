@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"37fe6b916698c0632cbd","1":"f14281ea22cbe3b67f04","2":"b781165adcffdb799b52","3":"3698a8f33cbbe52b6237","4":"757e1876ad117b700038","5":"8b7029ef9f568f2e5dbd","6":"aa9be165e71ee393174f","7":"82c41b5737d7f9378b5a","8":"c75bc57980f168fa0418","9":"653ecfc3a04f70b4f2bb","10":"12c5ca382ff95559c5a7","13":"5565ca8ed63b6874a8c7","14":"14342292fd7a6b7a9ad8","16":"1aa07cfedc78204e03ac","18":"b058ea424a2a3380f3bb"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"37fe6b916698c0632cbd","1":"f9ca341e2d918012b53f","2":"b781165adcffdb799b52","3":"a52552b403748c3b467b","4":"096c768644d19dc1c053","5":"c6e78ed7b5c38b3e1965","6":"1ce3b02c08d80e6b2096","7":"59b2c5de97f3767bcb93","8":"c75bc57980f168fa0418","9":"771a69be863e22d14779","10":"12c5ca382ff95559c5a7","11":"03414ed35d47b1d076f8","12":"60fd99f688794d97ae90","13":"5565ca8ed63b6874a8c7","14":"14342292fd7a6b7a9ad8"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -34395,86 +34395,86 @@ var map = {
 	"./backend/Home": [
 		"./resources/js/Pages/backend/Home.js",
 		0,
-		9,
+		4,
 		8,
-		5,
+		1,
 		14
 	],
 	"./backend/Home.js": [
 		"./resources/js/Pages/backend/Home.js",
 		0,
-		9,
+		4,
 		8,
-		5,
+		1,
 		14
 	],
 	"./backend/ManageCourses": [
 		"./resources/js/Pages/backend/ManageCourses.js",
 		0,
 		2,
-		3,
 		5,
-		7,
+		1,
+		3,
 		10
 	],
 	"./backend/ManageCourses.js": [
 		"./resources/js/Pages/backend/ManageCourses.js",
 		0,
 		2,
-		3,
 		5,
-		7,
+		1,
+		3,
 		10
 	],
 	"./backend/ManageLectures": [
 		"./resources/js/Pages/backend/ManageLectures.js",
 		0,
 		2,
-		6,
-		5,
 		7,
-		16
+		1,
+		3,
+		9
 	],
 	"./backend/ManageLectures.js": [
 		"./resources/js/Pages/backend/ManageLectures.js",
 		0,
 		2,
-		6,
-		5,
 		7,
-		16
+		1,
+		3,
+		9
 	],
 	"./backend/ManageProgrammes": [
 		"./resources/js/Pages/backend/ManageProgrammes.js",
 		0,
 		2,
-		5,
-		7,
-		18
+		1,
+		3,
+		11
 	],
 	"./backend/ManageProgrammes.js": [
 		"./resources/js/Pages/backend/ManageProgrammes.js",
 		0,
 		2,
-		5,
-		7,
-		18
+		1,
+		3,
+		11
 	],
 	"./backend/Programmes": [
 		"./resources/js/Pages/backend/Programmes.js",
 		0,
-		9,
 		4,
-		5,
-		1
+		6,
+		1,
+		12
 	],
 	"./backend/Programmes.js": [
 		"./resources/js/Pages/backend/Programmes.js",
 		0,
-		9,
 		4,
-		5,
-		1
+		6,
+		1,
+		12
 	]
 };
 function webpackAsyncContext(req) {

@@ -24,7 +24,7 @@ const programmeState = {
 const useToolbarStyles = makeStyles(theme => ({
     formWith: { width: "30rem" }
 }));
-const ManageLectures = ({ programmes }) => {
+const ManageLectures = ({ programmes, courses }) => {
     const classes = useToolbarStyles();
     const [
         openUpdateProgrammeDialog,
@@ -92,15 +92,15 @@ const ManageLectures = ({ programmes }) => {
     };
     return (
         <>
-            <UploadFile btnText="upload video" />
             <AllLecturesView
                 programmes={programmes}
+                courses={courses}
                 getProgrammeToUpdate={getProgrammeToUpdate}
                 deleteProgramme={deleteProgramme}
             />
             <SnackbarAlert message={alertMessage} openAlert={openAlert} />;
             <DialogComponent
-                title="Update Programme"
+                title="Add New Lecture"
                 btnText="Save"
                 openDialog={openUpdateProgrammeDialog}
                 closeDialog={handleUpdateProgramDialogClose}
@@ -118,7 +118,7 @@ const ManageLectures = ({ programmes }) => {
                     </FormLabel>
                     <FormControl fullWidth variant="outlined">
                         <TextField
-                            label="Programme"
+                            label="Title"
                             variant="filled"
                             size="small"
                             name="programme"
