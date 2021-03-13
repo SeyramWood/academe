@@ -1,10 +1,12 @@
+import { indexOf } from "lodash";
 import {
     testAlpha,
     testAlphaNum,
     testAlphaDash,
     testNumeric,
     testEmail,
-    testString
+    testString,
+    testFile
 } from "./validationRules";
 
 const decamelize = (str, separator) => {
@@ -160,6 +162,48 @@ const validateForm = (values, rules) => {
                                                       valueKey
                                                   )} dose not match ${value}`
                                               );
+                                    }
+                                    break;
+                                case "docs":
+                                    const regex = /(\.pdf|\.doc|\.docx)$/i;
+                                    if (values[valueKey].name) {
+                                        // if (
+                                        //     !regex.exec(values[valueKey].name)
+                                        // ) {
+                                        //     mainRuleMessage.length > 0
+                                        //         ? errors[`${valueKey}`].push(
+                                        //               mainRuleMessage
+                                        //           )
+                                        //         : errors[`${valueKey}`].push(
+                                        //               `The ${decamelize(
+                                        //                   valueKey
+                                        //               )} must be of type ${value}`
+                                        //           );
+                                        // }
+                                    } else {
+                                        // let check = true;
+                                        // console.log(values[valueKey], value);
+                                        // for (const key in values[valueKey]) {
+                                        //     if (
+                                        //         regex.exec(
+                                        //             values[valueKey][`${key}`]
+                                        //                 .name
+                                        //         )
+                                        //     ) {
+                                        //         check = false;
+                                        //     }
+                                        // }
+                                        // if (!check) {
+                                        //     mainRuleMessage.length > 0
+                                        //         ? errors[`${valueKey}`].push(
+                                        //               mainRuleMessage
+                                        //           )
+                                        //         : errors[`${valueKey}`].push(
+                                        //               `The ${decamelize(
+                                        //                   valueKey
+                                        //               )} must be of type pdf, doc`
+                                        //           );
+                                        // }
                                     }
                                     break;
                                 default:

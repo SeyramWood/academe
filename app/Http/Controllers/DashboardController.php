@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\Lecture;
 use App\Models\Programme;
 use App\Traits\ManageCourse;
 use Illuminate\Http\Request;
+use App\Traits\ManageLecture;
 
 class DashboardController extends Controller
 {
     use ManageCourse;
+    use ManageLecture;
+
+    public function __construct()
+    {
+        $this->middleware('auth:faculty');
+    }
     public function index()
     {
         return inertia('backend/Home', [
@@ -39,6 +47,6 @@ class DashboardController extends Controller
     }
     public function manageLectures()
     {
-        return inertia('backend/ManageLectures', ['programmes' => Programme::all(), 'courses' => $this->getCourses(),]);
+        return inertia('backend/ManageLectures', ['lectures' => $this->getLectures(), 'courses' => $this->getCourses()]);
     }
 }

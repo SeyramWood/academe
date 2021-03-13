@@ -1,4 +1,17 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/reactPlayerFacebook.js": "/js/reactPlayerFacebook.js?id=9ed49a00f6e5046dfb90",
+    "/js/reactPlayerKaltura.js": "/js/reactPlayerKaltura.js?id=40e540d01e82b032bece",
+    "/js/reactPlayerMixcloud.js": "/js/reactPlayerMixcloud.js?id=b36201fb2560fce22e87",
+    "/js/reactPlayerPreview.js": "/js/reactPlayerPreview.js?id=1d9510be9e37bab668e7",
+    "/js/reactPlayerSoundCloud.js": "/js/reactPlayerSoundCloud.js?id=f976ba11e924763c6767",
+    "/js/reactPlayerStreamable.js": "/js/reactPlayerStreamable.js?id=0c7a8975f080ec66870e",
+    "/js/reactPlayerTwitch.js": "/js/reactPlayerTwitch.js?id=f80860124a5e95bc7bc1",
+    "/js/reactPlayerVidyard.js": "/js/reactPlayerVidyard.js?id=e2750513ffa1a6e6dac4",
+    "/js/vendors~reactPlayerDailyMotion.js": "/js/vendors~reactPlayerDailyMotion.js?id=713d350fca69d262031f",
+    "/js/vendors~reactPlayerFilePlayer.js": "/js/vendors~reactPlayerFilePlayer.js?id=e8f8b556107007a1e2c5",
+    "/js/vendors~reactPlayerVimeo.js": "/js/vendors~reactPlayerVimeo.js?id=f0d80d636a5665759298",
+    "/js/vendors~reactPlayerWistia.js": "/js/vendors~reactPlayerWistia.js?id=3e4f42cf4f99394d67b7",
+    "/js/vendors~reactPlayerYouTube.js": "/js/vendors~reactPlayerYouTube.js?id=50233b8824e4b30f5914"
 }

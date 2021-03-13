@@ -1,5 +1,8 @@
 import { Inertia } from "@inertiajs/inertia";
 import React from "react";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { lighten, makeStyles } from "@material-ui/core/styles";
@@ -36,8 +39,24 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import CloudUploadOutlinedIcon from "@material-ui/icons/CloudUploadOutlined";
 
-function createData(id, name, year_1, year_2, year_3) {
-    return { id, name, year_1, year_2, year_3 };
+function createData(
+    id,
+    title,
+    documents,
+    assignment_count,
+    comment_count,
+    course,
+    slug
+) {
+    return {
+        id,
+        title,
+        documents,
+        assignment_count,
+        comment_count,
+        course,
+        slug
+    };
 }
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -73,28 +92,34 @@ const headCells = [
         label: "#ID"
     },
     {
-        id: "name",
+        id: "title",
         numeric: false,
         disablePadding: false,
-        label: "Name"
+        label: "Title"
     },
     {
-        id: "year1",
+        id: "documents",
         numeric: false,
         disablePadding: false,
-        label: "Courses (Year 1)"
+        label: "Documents"
     },
     {
-        id: "year2",
+        id: "assignments",
         numeric: false,
         disablePadding: false,
-        label: "Courses (Year 2)"
+        label: "Assignments"
     },
     {
-        id: "year3",
+        id: "comments",
         numeric: false,
         disablePadding: false,
-        label: "Course (Year 3)"
+        label: "Comments"
+    },
+    {
+        id: "course",
+        numeric: false,
+        disablePadding: false,
+        label: "Course"
     },
     {
         id: "action",
@@ -194,12 +219,15 @@ const useToolbarStyles = makeStyles(theme => ({
     }
 }));
 
-const programmeState = {
+const lecture = {
     STATE: {
-        programme: ""
+        title: "",
+        course: "",
+        documents: []
     },
     RULES: {
-        programme: "required|string"
+        title: "required|string",
+        course: "required|string"
     }
 };
 
@@ -209,47 +237,78 @@ const EnhancedTableToolbar = props => {
 
     const [openAlert, setOpenAlert] = React.useState(false);
     const [alertMessage, setAlertMessage] = React.useState(false);
+    const [isVideoUploading, setIsVideoUploading] = React.useState(false);
 
-    const [openAddProgramDialog, setAddProgramDialog] = React.useState(false);
+    const [openAddLectureDialog, setAddLectureDialog] = React.useState(false);
+    const [video, setVideo] = React.useState("");
+    const [videoIsRequired, setVideoIsRequired] = React.useState("");
+    const [documentsError, setDocumentsError] = React.useState("");
     const {
         state: values,
         handleChange,
+        handleBlur,
         handleSubmit,
         isSubmitting,
+        updateIsSubmitting,
         errors,
-        handleBlur,
         clearValues,
         setServerErrors
-    } = useFormValidation(
-        programmeState.STATE,
-        programmeState.RULES,
-        addNewProgramme
-    );
-    const handleAddProgramDialogOpen = () => {
-        setAddProgramDialog(true);
+    } = useFormValidation(lecture.STATE, lecture.RULES, addNewLecture);
+
+    const handleAddLectureDialogOpen = () => {
+        setAddLectureDialog(true);
     };
 
-    const handleAddProgramDialogClose = () => {
-        setAddProgramDialog(false);
+    const handleAddLectureDialogClose = () => {
+        setAddLectureDialog(false);
         clearValues();
         setServerErrors();
+        setVideoIsRequired("");
+        setDocumentsError("");
     };
 
-    function addNewProgramme() {
-        Inertia.post("/dashboard/create-programme", values, {
-            errorBag: "createProgramme",
+    const lectureFormData = () => {
+        const formData = new FormData();
+        if (values.documents.length > 0) {
+            formData.append("title", values.title);
+            formData.append("course", values.course);
+            formData.append("video", video);
+            values.documents.forEach((e, i) => {
+                formData.append(`documents[${i}]`, e);
+            });
+        } else {
+            formData.append("title", values.title);
+            formData.append("course", values.course);
+            formData.append("video", video);
+        }
+        return formData;
+    };
+    function addNewLecture() {
+        setVideoIsRequired("");
+        setDocumentsError("");
+        const lecture = lectureFormData(values);
+        Inertia.post("/dashboard/create-lecture", lecture, {
+            errorBag: "createLecture",
             onSuccess: page => {
+                updateIsSubmitting(false);
                 clearValues();
-                setAlertMessage("Programme added successfully");
+                setAlertMessage("Lecture created successfully");
                 setOpenAlert(true);
                 setTimeout(() => {
                     setOpenAlert(false);
                 }, 5000);
             },
             onError: error => {
-                setServerErrors({
-                    programme: error.programme
-                });
+                error.documents && setDocumentsError(error.documents);
+                error.video && setVideoIsRequired(error.video);
+                error.title &&
+                    setServerErrors({
+                        title: error.title
+                    });
+                error.course &&
+                    setServerErrors({
+                        course: error.course
+                    });
             }
         });
     }
@@ -307,7 +366,7 @@ const EnhancedTableToolbar = props => {
                             <IconButton
                                 aria-label="Upload new lecture"
                                 color="primary"
-                                onClick={handleAddProgramDialogOpen}
+                                onClick={handleAddLectureDialogOpen}
                             >
                                 <AddOutlinedIcon />
                             </IconButton>
@@ -318,8 +377,8 @@ const EnhancedTableToolbar = props => {
             <DialogComponent
                 title="Add New Lecture"
                 btnText="Add"
-                openDialog={openAddProgramDialog}
-                closeDialog={handleAddProgramDialogClose}
+                openDialog={openAddLectureDialog}
+                closeDialog={handleAddLectureDialogClose}
             >
                 <form
                     noValidate
@@ -329,28 +388,21 @@ const EnhancedTableToolbar = props => {
                     className={classes.formWith}
                     onSubmit={handleSubmit}
                 >
-                    <UploadFile btnText="upload video" />
                     <FormLabel component="legend" className="my-3" required>
-                        Enter Title
+                        Lecture Title
                     </FormLabel>
                     <FormControl fullWidth variant="outlined">
                         <TextField
-                            label="Lecture Title"
-                            id="course-title"
+                            label="Enter title"
+                            id="lecture-title"
                             variant="filled"
                             size="small"
-                            name="programme"
+                            name="title"
+                            value={values.title}
                             error={
-                                errors.programme &&
-                                errors.programme.length > 0 &&
-                                true
+                                errors.title && errors.title.length > 0 && true
                             }
-                            helperText={
-                                errors.programme &&
-                                errors.programme.length > 0 &&
-                                errors.programme
-                            }
-                            value={values.programme}
+                            helperText={errors.title || ""}
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
@@ -360,25 +412,26 @@ const EnhancedTableToolbar = props => {
                     </FormLabel>
                     <FormControl variant="filled" fullWidth>
                         <InputLabel
-                            id="demo-simple-select-filled-label"
+                            id="course-label"
                             className={
-                                errors.programme && errors.programme.length > 0
+                                errors.course && errors.course.length > 0
                                     ? "error"
                                     : ""
                             }
                         >
-                            Course
+                            Select Course
                         </InputLabel>
+
                         <Select
-                            labelId="demo-simple-select-filled-label"
-                            id="demo-simple-select-filled"
-                            name="programme"
+                            labelId="course-label"
+                            id="course-select"
+                            name="course"
                             error={
-                                errors.programme &&
-                                errors.programme.length > 0 &&
+                                errors.course &&
+                                errors.course.length > 0 &&
                                 true
                             }
-                            value={values.programme}
+                            value={values.course}
                             onChange={handleChange}
                             onBlur={handleBlur}
                         >
@@ -389,21 +442,37 @@ const EnhancedTableToolbar = props => {
                             ))}
                         </Select>
                         <FormHelperText className="error">
-                            {errors.programme}
+                            {errors.course}
                         </FormHelperText>
                     </FormControl>
                     <FormLabel component="legend" className="my-3" required>
+                        Select Video
+                    </FormLabel>
+                    <UploadFile
+                        btnText="upload video"
+                        fileUploading={setIsVideoUploading}
+                        getFileName={setVideo}
+                        resetFile={openAddLectureDialog}
+                        location="lectures"
+                    />
+                    <FormHelperText className="error">
+                        {videoIsRequired}
+                    </FormHelperText>
+                    <FormLabel component="legend" className="my-3">
                         Documents
                     </FormLabel>
                     <FormControl fullWidth variant="outlined">
                         <input
-                            accept="/*"
+                            accept=".pdf"
                             className={classes.input}
-                            id="contained-button-file"
+                            id="attach-documents"
                             multiple
                             type="file"
+                            name="documents"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
                         />
-                        <label htmlFor="contained-button-file">
+                        <label htmlFor="attach-documents">
                             <Button
                                 variant="contained"
                                 color="primary"
@@ -415,9 +484,20 @@ const EnhancedTableToolbar = props => {
                                     Add cocuments
                                 </span>
                             </Button>
+                            {values.documents &&
+                                values.documents.map(e => (
+                                    <p
+                                        className="upload-file-name"
+                                        key={e.name}
+                                    >
+                                        {e.name}
+                                    </p>
+                                ))}
                         </label>
+                        <FormHelperText className="error">
+                            {documentsError}
+                        </FormHelperText>
                     </FormControl>
-
                     <FormLabel component="legend" className="my-3">
                         Required fields (*)
                     </FormLabel>
@@ -426,7 +506,7 @@ const EnhancedTableToolbar = props => {
                             variant="outlined"
                             color="primary"
                             type="submit"
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || isVideoUploading}
                         >
                             <Puff
                                 size={20}
@@ -473,14 +553,22 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const AllLecturesView = ({
-    programmes,
+    lectures,
     courses,
     getProgrammeToUpdate,
     deleteProgramme
 }) => {
     const classes = useStyles();
-    const rows = programmes.map(p => {
-        return createData(p.id, p.name, p.year_1, p.year_2, p.year_3);
+    const rows = lectures.map(l => {
+        return createData(
+            l.id,
+            l.title,
+            l.documents ? JSON.parse(l.documents).length : 0,
+            l.assignment_count,
+            l.comment_count,
+            l.course,
+            l.slug
+        );
     });
     const [order, setOrder] = React.useState("desc");
     const [orderBy, setOrderBy] = React.useState("id");
@@ -605,10 +693,23 @@ const AllLecturesView = ({
                                             >
                                                 {row.id}
                                             </TableCell>
-                                            <TableCell>{row.name}</TableCell>
-                                            <TableCell>{row.year_1}</TableCell>
-                                            <TableCell>{row.year_2}</TableCell>
-                                            <TableCell>{row.year_3}</TableCell>
+                                            <TableCell>
+                                                <a
+                                                    href={`/watch-video/${row.slug}`}
+                                                >
+                                                    {row.title}
+                                                </a>
+                                            </TableCell>
+                                            <TableCell>
+                                                {row.documents}
+                                            </TableCell>
+                                            <TableCell>
+                                                {row.assignment_count}
+                                            </TableCell>
+                                            <TableCell>
+                                                {row.comment_count}
+                                            </TableCell>
+                                            <TableCell>{row.course}</TableCell>
                                             <TableCell>
                                                 <Tooltip title="Edit">
                                                     <IconButton
@@ -618,8 +719,8 @@ const AllLecturesView = ({
                                                             getProgrammeToUpdate(
                                                                 {
                                                                     id: row.id,
-                                                                    programme:
-                                                                        row.name
+                                                                    lecture:
+                                                                        row.title
                                                                 }
                                                             )
                                                         }

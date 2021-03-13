@@ -17,16 +17,18 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle(Request $request, Closure $next, $guard = null)
     {
-        $guards = empty($guards) ? [null] : $guards;
-
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
+        switch ($guard) {
+            case 'faculty':
+                if (Auth::guard($guard)->check()) {
+                    return redirect(RouteServiceProvider::FACULTY);
+                }
+            default:
+                if (Auth::guard($guard)->check()) {
+                    return redirect(RouteServiceProvider::STUDENT);
+                }
         }
-
         return $next($request);
     }
 }

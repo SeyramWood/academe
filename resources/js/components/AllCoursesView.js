@@ -241,6 +241,7 @@ const EnhancedTableToolbar = props => {
         handleBlur,
         handleSubmit,
         isSubmitting,
+        updateIsSubmitting,
         errors,
         clearValues,
         setServerErrors
@@ -258,6 +259,7 @@ const EnhancedTableToolbar = props => {
         Inertia.post("/dashboard/create-course", values, {
             errorBag: "createCourse",
             onSuccess: page => {
+                updateIsSubmitting(false);
                 clearValues();
                 setAlertMessage("Course added successfully");
                 setOpenAlert(true);

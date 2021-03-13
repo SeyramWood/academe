@@ -14,7 +14,13 @@ trait RedirectsUsers
         if (method_exists($this, 'redirectTo')) {
             return $this->redirectTo();
         }
-
+        // if ($guard === 'faculty') {
+        //     # code...
+        // }
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/dashboard';
+        // if ($guard === 'web') {
+        //     # code...
+        //     return property_exists($this, 'redirectTo') ? $this->redirectTo : '/dashboard/student';
+        // }
     }
 }

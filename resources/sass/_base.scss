@@ -47,7 +47,9 @@ a:active {
     color: $text;
     text-decoration: none;
 }
-
+a.linkHover:hover,a.linkHover:active{
+  text-decoration: underline;
+}
 ::selection {
     background-color: $blue;
     color: #fff;

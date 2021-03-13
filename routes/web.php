@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,26 +18,56 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 // Route::inertia('/', 'Welcome');
-Route::get('/', 'WelcomeController@index');
-Route::get('/dashboard', 'DashboardController@index');
-Route::get('/dashboard/programmes-and-courses', 'DashboardController@programmesAndCourses');
-Route::get('/dashboard/manage-programmes', 'DashboardController@manageProgrammes')->name('manage.programmes');
-Route::get('/dashboard/manage-courses', 'DashboardController@manageCourses')->name('manage.courses');
-Route::get('/dashboard/upload-lecture', 'DashboardController@manageLectures');
+// Route::middleware(['guest', 'guest:faculty'])->group(function () {
+// });
+Route::get('/', 'Auth\RegisterController@index')->name('account');
+Route::post('/create-account', 'Auth\RegisterController@createAccount');
+Route::post('/signin', 'Auth\LoginController@signIn');
+Route::post('/logout', 'Auth\LogoutController@signOut');
+Route::prefix('dashboard')->group(function () {
+  Route::get('/', 'DashboardController@index');
+  Route::get('/programmes-and-courses', 'DashboardController@programmesAndCourses');
+  Route::get('/manage-programmes', 'DashboardController@manageProgrammes')->name('manage.programmes');
+  Route::get('/manage-courses', 'DashboardController@manageCourses')->name('manage.courses');
+  Route::get('/upload-lecture', 'DashboardController@manageLectures')->name('manage.lectures');
 
-/** Programme Routes */
-Route::get('/dashboard/get-programmes', 'ProgrammeController@getProgrammes');
-Route::post('/dashboard/create-programme', 'ProgrammeController@addNewProgramme');
-Route::put('/dashboard/update-programme', 'ProgrammeController@editProgramme');
-Route::delete('/dashboard/delete-programme/{programme}', 'ProgrammeController@deleteProgramme');
-Route::delete('/dashboard/delete-programmes/{programmes}', 'ProgrammeController@deleteProgrammes');
-Route::post('/dashboard/upload', 'ProgrammeController@upLoad');
+  /** Programme Routes */
+  Route::get('/get-programmes', 'ProgrammeController@getProgrammes');
+  Route::post('/create-programme', 'ProgrammeController@addNewProgramme');
+  Route::put('/update-programme', 'ProgrammeController@editProgramme');
+  Route::delete('/delete-programme/{programme}', 'ProgrammeController@deleteProgramme');
+  Route::delete('/delete-programmes/{programmes}', 'ProgrammeController@deleteProgrammes');
+  Route::post('/upload/{location?}', 'VideoUploadController@upLoad');
 
-/** Course Routes */
-Route::get('/dashboard/get-courses/{key}', 'CourseController@getCourses');
-Route::post('/dashboard/create-course', 'CourseController@addNewCourse');
-Route::put('/dashboard/update-course', 'CourseController@editCourse');
-Route::delete('/dashboard/delete-course/{course}', 'CourseController@deleteCourse');
-Route::delete('/dashboard/delete-courses/{courses}', 'CourseController@deleteCourses');
+  /** Course Routes */
+  Route::get('/get-courses/{key}', 'CourseController@getCourses');
+  Route::post('/create-course', 'CourseController@addNewCourse');
+  Route::put('/update-course', 'CourseController@editCourse');
+  Route::delete('/delete-course/{course}', 'CourseController@deleteCourse');
+  Route::delete('/delete-courses/{courses}', 'CourseController@deleteCourses');
 
-/**Lectures Routes */
+  /**Lectures Routes */
+  Route::post('/create-lecture', 'LectureController@addNewLecture');
+  /**Profile Routes */
+  Route::get('/profile', 'LecturerController@profile')->name('faculty.profile');
+});
+
+Route::prefix('dashboard/student')->group(function () {
+  Route::get('/', 'StudentController@index')->name('student.home');
+  Route::get('/lectures', 'StudentController@lectures')->name('student.lectures');
+  Route::get('/courses', 'StudentController@courses')->name('student.courses');
+  Route::get('/profile', 'StudentController@profile')->name('student.profile');
+  Route::post('/register-course', 'StudentController@registerCourse')->name('student.registerCourses');
+});
+
+/**Video Padge Routes */
+
+Route::middleware(['auth'])->group(function () {
+  Route::get('/student/watch-video/{lecture:slug}', 'StudentVideoController@watchVideos');
+});
+Route::middleware(['auth:faculty'])->group(function () {
+  Route::get('/watch-video/{lecture:slug}', 'VideoController@watchVideos');
+});
+Route::get('/get-lectures-by-course/{id}', 'VideoController@getLectureByCourse');
+Route::put('/update-profile', 'ProfileController@editProfile');
+Route::post('/update-profile-photo', 'ProfileController@editProfilePhoto');

@@ -34,31 +34,4 @@ class ProgrammeController extends Controller
     {
         return Programme::all();
     }
-
-    public function upLoad(Request $request)
-    {
-        // dd($request->all());
-        if ($request->has('file')) {
-            $file = $request->file('file');
-            $path = Storage::path("chunks/{$file->getClientOriginalName()}");
-            $name = basename($path, '.part');
-            if (!Storage::disk('public')->exists("lectures/main_files/{$name}")) {
-                File::append($path, $file->get());
-                if (
-                    $request->has('is_last') && $request->boolean('is_last')
-                ) {
-                    $name = basename($path, '.part');
-                    if (!Storage::disk('public')->exists("lectures/temp_files/{$name}")) {
-                        Storage::move("chunks/{$name}.part", "public/lectures/temp_files/{$name}");
-                        Storage::disk('local')->delete("chunks/{$name}.part");
-                        return response()->json(['uploaded' => true]);
-                    } else {
-                        return response()->json(['exist' => true]);
-                    }
-                }
-            } else {
-                return response()->json(['exist' => true]);
-            }
-        }
-    }
 }

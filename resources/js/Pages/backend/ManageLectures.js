@@ -24,7 +24,7 @@ const programmeState = {
 const useToolbarStyles = makeStyles(theme => ({
     formWith: { width: "30rem" }
 }));
-const ManageLectures = ({ programmes, courses }) => {
+const ManageLectures = ({ lectures, courses }) => {
     const classes = useToolbarStyles();
     const [
         openUpdateProgrammeDialog,
@@ -93,7 +93,7 @@ const ManageLectures = ({ programmes, courses }) => {
     return (
         <>
             <AllLecturesView
-                programmes={programmes}
+                lectures={lectures}
                 courses={courses}
                 getProgrammeToUpdate={getProgrammeToUpdate}
                 deleteProgramme={deleteProgramme}

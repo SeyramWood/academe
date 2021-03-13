@@ -1,0 +1,187 @@
+.video__page__layout {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  &__right {
+    width: 60%;
+    margin-right: 1rem;
+    &__player {
+      width: 100%;
+    }
+    &__details {
+    }
+  }
+  &__left {
+    width: 40%;
+    margin-left: 1rem;
+    &__header {
+      letter-spacing: 0.1rem;
+    }
+  }
+}
+.list__video {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 2rem;
+  // &__thumbnail{
+  //   width: 30%;
+  //   height: 6rem;
+  //   & > div{
+  //     width: 170px !important;
+  //     height: 100px !important;
+  //     margin: 0 !important;
+  //     & > video{
+  //       width: 100% !important;
+  //       height: 100% !important;
+  //     }
+  //   }
+
+  // }
+  &__thumb {
+    cursor: pointer;
+  }
+  &__details {
+    &__title {
+      font-weight: bold;
+      font-size: 1rem;
+      color: #000000b5;
+      padding-bottom: 0.5rem;
+    }
+    &__other {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 0.8rem;
+      & > span:first-child {
+        padding-right: 0.4rem;
+      }
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+      & .MuiSvgIcon-root {
+        font-size: inherit !important;
+      }
+    }
+  }
+}
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+
+  &__wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6rem;
+    opacity: 0;
+    background-color: rgb(207, 207, 207);
+    display: inline-block;
+  }
+  &:hover > &__wrapper {
+    animation: fadeIn 0.6s ease-in both;
+  }
+  &__controls {
+    height: inherit;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.3rem 0;
+
+    & progress {
+      width: 100%;
+      padding: 0 1rem;
+    }
+    & .MuiIconButton-root {
+      padding: 4px !important;
+    }
+    & .MuiSvgIcon-root {
+      fill: #fff;
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      font-size: 1.5rem;
+      transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    &__actions {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__actions.action {
+      position: relative;
+      max-width: 12.5%;
+      color: #fff;
+    }
+    &__actions.action.volume {
+      // background-color: red;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & div:first-child {
+        margin-top: 0.3rem;
+        flex: 4;
+        transition: all 10s ease-in-out;
+        display: none;
+      }
+      & div:last-child {
+        //  flex: 1;
+      }
+      &:hover > div:first-child {
+        display: block;
+      }
+    }
+    &__actions.action.settings {
+      position: absolute;
+
+      top: -2rem;
+      right: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      background-color: red;
+      border: rebeccapurple solid 2px;
+      padding: 0 3rem;
+    }
+  }
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.player-wrapper_thumbnail {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player_thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    // z-index: 1;
+    // transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    // z-index: 1;
+    // transform: translateY(0);
+    opacity: 1;
+  }
+
+}

@@ -213,188 +213,186 @@ const Home = ({ user }) => {
     const classes = useStyles();
 
     return (
-        <>
-            <div className={classes.root}>
-                <Grid container spacing={3}>
-                    <Grid item xs={6} sm={6} md={3}>
-                        <Paper className={classes.paper}>
-                            <div className="dashboard-summary">
-                                <div>
-                                    <Fab
-                                        size="small"
-                                        color="secondary"
-                                        aria-label="like"
-                                    >
-                                        <AccountBalanceOutlinedIcon />
-                                    </Fab>
-                                </div>
-                                <div>
-                                    <p>123</p>
-                                    <p>Total Lecturers</p>
-                                </div>
+        <div className={classes.root}>
+            <Grid container spacing={3}>
+                <Grid item xs={6} sm={6} md={3}>
+                    <Paper className={classes.paper}>
+                        <div className="dashboard-summary">
+                            <div>
+                                <Fab
+                                    size="small"
+                                    color="secondary"
+                                    aria-label="like"
+                                >
+                                    <AccountBalanceOutlinedIcon />
+                                </Fab>
                             </div>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={6} sm={6} md={3}>
-                        <Paper className={classes.paper}>
-                            <div className="dashboard-summary">
-                                <div>
-                                    <Fab
-                                        size="small"
-                                        color="primary"
-                                        aria-label="like"
-                                    >
-                                        <AccountBalanceOutlinedIcon />
-                                    </Fab>
-                                </div>
-                                <div>
-                                    <p>123</p>
-                                    <p>Total Students</p>
-                                </div>
+                            <div>
+                                <p>123</p>
+                                <p>Total Lecturers</p>
                             </div>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={6} sm={6} md={3}>
-                        <Paper className={classes.paper}>
-                            <div className="dashboard-summary">
-                                <div>
-                                    <Fab
-                                        size="small"
-                                        color="secondary"
-                                        aria-label="like"
-                                    >
-                                        <AccountBalanceOutlinedIcon />
-                                    </Fab>
-                                </div>
-                                <div>
-                                    <p>123</p>
-                                    <p>Total Teachers</p>
-                                </div>
-                            </div>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={6} sm={6} md={3}>
-                        <Paper className={classes.paper}>
-                            <div className="dashboard-summary">
-                                <div>
-                                    <Fab
-                                        size="small"
-                                        color="primary"
-                                        aria-label="like"
-                                    >
-                                        <AccountBalanceOutlinedIcon />
-                                    </Fab>
-                                </div>
-                                <div>
-                                    <p>123</p>
-                                    <p>Total Attendance</p>
-                                </div>
-                            </div>
-                        </Paper>
-                    </Grid>
+                        </div>
+                    </Paper>
                 </Grid>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} sm={9}>
-                        <Paper className={classes.paper}>
-                            <Chart
-                                height={300}
-                                padding="auto"
-                                data={data}
-                                autoFit
-                                filter={[["avgRainfall", val => val !== null]]}
-                            >
-                                <Interval
-                                    adjust={[
-                                        {
-                                            type: "dodge",
-                                            marginRatio: 0
-                                        }
-                                    ]}
-                                    color="name"
-                                    position="month*avgRainfall"
-                                />
-                                <Tooltip shared />
-                                <Interaction type="active-region" />
-                            </Chart>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <Paper className={classes.paper}>
-                            <Chart
-                                height={300}
-                                data={data4}
-                                autoFit
-                                description={{
-                                    visible: true,
-                                    text:
-                                        "The outer radius of the ring graph determines the size of the ring graph, and the inner radius determines the thickness of the ring graph."
+                <Grid item xs={6} sm={6} md={3}>
+                    <Paper className={classes.paper}>
+                        <div className="dashboard-summary">
+                            <div>
+                                <Fab
+                                    size="small"
+                                    color="primary"
+                                    aria-label="like"
+                                >
+                                    <AccountBalanceOutlinedIcon />
+                                </Fab>
+                            </div>
+                            <div>
+                                <p>123</p>
+                                <p>Total Students</p>
+                            </div>
+                        </div>
+                    </Paper>
+                </Grid>
+                <Grid item xs={6} sm={6} md={3}>
+                    <Paper className={classes.paper}>
+                        <div className="dashboard-summary">
+                            <div>
+                                <Fab
+                                    size="small"
+                                    color="secondary"
+                                    aria-label="like"
+                                >
+                                    <AccountBalanceOutlinedIcon />
+                                </Fab>
+                            </div>
+                            <div>
+                                <p>123</p>
+                                <p>Total Teachers</p>
+                            </div>
+                        </div>
+                    </Paper>
+                </Grid>
+                <Grid item xs={6} sm={6} md={3}>
+                    <Paper className={classes.paper}>
+                        <div className="dashboard-summary">
+                            <div>
+                                <Fab
+                                    size="small"
+                                    color="primary"
+                                    aria-label="like"
+                                >
+                                    <AccountBalanceOutlinedIcon />
+                                </Fab>
+                            </div>
+                            <div>
+                                <p>123</p>
+                                <p>Total Attendance</p>
+                            </div>
+                        </div>
+                    </Paper>
+                </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+                <Grid item xs={12} sm={9}>
+                    <Paper className={classes.paper}>
+                        <Chart
+                            height={300}
+                            padding="auto"
+                            data={data}
+                            autoFit
+                            filter={[["avgRainfall", val => val !== null]]}
+                        >
+                            <Interval
+                                adjust={[
+                                    {
+                                        type: "dodge",
+                                        marginRatio: 0
+                                    }
+                                ]}
+                                color="name"
+                                position="month*avgRainfall"
+                            />
+                            <Tooltip shared />
+                            <Interaction type="active-region" />
+                        </Chart>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={3}>
+                    <Paper className={classes.paper}>
+                        <Chart
+                            height={300}
+                            data={data4}
+                            autoFit
+                            description={{
+                                visible: true,
+                                text:
+                                    "The outer radius of the ring graph determines the size of the ring graph, and the inner radius determines the thickness of the ring graph."
+                            }}
+                        >
+                            <Coordinate type="polar" innerRadius={0.2} />
+                            <Axis visible={false} />
+                            <Tooltip showTitle={false} />
+                            <Interval
+                                position="year*population"
+                                adjust="stack"
+                                color="year"
+                                element-highlight
+                                style={{
+                                    lineWidth: 1,
+                                    stroke: "#fff"
                                 }}
-                            >
-                                <Coordinate type="polar" innerRadius={0.2} />
-                                <Axis visible={false} />
-                                <Tooltip showTitle={false} />
-                                <Interval
-                                    position="year*population"
-                                    adjust="stack"
-                                    color="year"
-                                    element-highlight
-                                    style={{
-                                        lineWidth: 1,
-                                        stroke: "#fff"
-                                    }}
-                                    label={[
-                                        "year",
-                                        {
-                                            offset: -15
-                                        }
-                                    ]}
-                                />
-                            </Chart>
-                        </Paper>
-                    </Grid>
+                                label={[
+                                    "year",
+                                    {
+                                        offset: -15
+                                    }
+                                ]}
+                            />
+                        </Chart>
+                    </Paper>
                 </Grid>
-                <Grid container spacing={3}>
-                    <Grid item xs={12} sm={6}>
-                        <Paper className={classes.paper}>
-                            <Chart
-                                padding={[10, 20, 50, 40]}
-                                autoFit
-                                height={300}
-                                data={data2}
-                            >
-                                <LineAdvance
-                                    shape="smooth"
-                                    point
-                                    area
-                                    position="month*temperature"
-                                    color="city"
-                                />
-                            </Chart>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <Paper className={classes.paper}>xs=6 sm=3</Paper>
-                    </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <Paper className={classes.paper}>
-                            <Chart
-                                scale={{ value: { min: 0 } }}
-                                padding={[10, 20, 50, 40]}
-                                autoFit
-                                height={300}
-                                data={data3}
-                            >
-                                <Line
-                                    shape="smooth"
-                                    position="month*acc"
-                                    color="l (270) 0:rgba(255, 146, 255, 1) .5:rgba(100, 268, 255, 1) 1:rgba(215, 0, 255, 1)"
-                                />
-                            </Chart>
-                        </Paper>
-                    </Grid>
+            </Grid>
+            <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
+                    <Paper className={classes.paper}>
+                        <Chart
+                            padding={[10, 20, 50, 40]}
+                            autoFit
+                            height={300}
+                            data={data2}
+                        >
+                            <LineAdvance
+                                shape="smooth"
+                                point
+                                area
+                                position="month*temperature"
+                                color="city"
+                            />
+                        </Chart>
+                    </Paper>
                 </Grid>
-            </div>
-        </>
+                <Grid item xs={12} sm={3}>
+                    <Paper className={classes.paper}>xs=6 sm=3</Paper>
+                </Grid>
+                <Grid item xs={12} sm={3}>
+                    <Paper className={classes.paper}>
+                        <Chart
+                            scale={{ value: { min: 0 } }}
+                            padding={[10, 20, 50, 40]}
+                            autoFit
+                            height={300}
+                            data={data3}
+                        >
+                            <Line
+                                shape="smooth"
+                                position="month*acc"
+                                color="l (270) 0:rgba(255, 146, 255, 1) .5:rgba(100, 268, 255, 1) 1:rgba(215, 0, 255, 1)"
+                            />
+                        </Chart>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </div>
     );
 };
 

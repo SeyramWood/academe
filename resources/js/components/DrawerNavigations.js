@@ -12,6 +12,7 @@ import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
 import MenuBookOutlinedIcon from "@material-ui/icons/MenuBookOutlined";
 import SchoolOutlinedIcon from "@material-ui/icons/SchoolOutlined";
+import AccountBoxOutlinedIcon from "@material-ui/icons/AccountBoxOutlined";
 const DrawerNavigations = ({ classes, updateNavName, handleDrawerClose }) => {
     const [navigation, setNavigation] = React.useState({
         home: { name: "Home", to: "/dashboard", icon: <HomeOutlinedIcon /> },
@@ -51,6 +52,11 @@ const DrawerNavigations = ({ classes, updateNavName, handleDrawerClose }) => {
                 ]
             }
         ],
+        profile: {
+            name: "Profile",
+            to: "/dashboard/profile",
+            icon: <AccountBoxOutlinedIcon />
+        },
         signOut: {
             name: "Sign out",
             to: "/logout",
@@ -59,217 +65,178 @@ const DrawerNavigations = ({ classes, updateNavName, handleDrawerClose }) => {
     });
     const [dropdownActiveLink, setDropdownActiveLink] = React.useState("");
     const [navigationIndex, setNavigationIndex] = React.useState(0);
-    const [toggleNavDropdown, setToggleNavDropdown] = React.useState(false);
-    const [toggleNavDropdown1, setToggleNavDropdown1] = React.useState(false);
-    const handleNavDropdown = () => {
-        setToggleNavDropdown(!toggleNavDropdown);
-        setToggleNavDropdown1(false);
+    const [toggleNavDropdown, setToggleNavDropdown] = React.useState({
+        programmes: false,
+        lectures: false
+    });
+    const handleNavDropdown = ckey => {
+        for (const key in toggleNavDropdown) {
+            if (Object.hasOwnProperty.call(toggleNavDropdown, key)) {
+                if (key === ckey) {
+                    setToggleNavDropdown(state => ({
+                        ...state,
+                        [ckey]: !state[ckey]
+                    }));
+                }
+                if (key !== ckey) {
+                    setToggleNavDropdown(state => ({
+                        ...state,
+                        [key]: false
+                    }));
+                }
+            }
+        }
     };
-    const handleNavDropdown1 = () => {
-        setToggleNavDropdown1(!toggleNavDropdown1);
-        setToggleNavDropdown(false);
-    };
-
     const handleNavName = (name, index) => {
         handleDrawerClose();
-        updateNavName(name);
+        name === "Sign out" ? "Home" : updateNavName(name);
         setNavigationIndex(index);
         setDropdownActiveLink("");
-        setToggleNavDropdown(false);
-        setToggleNavDropdown1(false);
     };
     const handleDropdownLinkToggle = index => {
         setNavigationIndex(index);
     };
     const handleDropdownActiveLink = (name, index) => {
         handleDrawerClose();
-        updateNavName(name);
+        name === "Sign out" ? "Home" : updateNavName(name);
         setNavigationIndex(index);
         setDropdownActiveLink(name);
     };
+    React.useEffect(() => {
+        if (localStorage.getItem("navName")) {
+            handleDrawerClose();
+            updateNavName(localStorage.getItem("navName"));
+            setDropdownActiveLink(localStorage.getItem("navName"));
+        }
+    }, []);
     return (
         <>
             {Object.keys(navigation).map((key, idx) => (
-                <List key={idx}>
-                    {key === "home" && (
-                        <InertiaLink
-                            href={navigation[`${key}`].to}
-                            onClick={() =>
-                                handleNavName(navigation[`${key}`].name, idx)
-                            }
-                        >
-                            <ListItem
-                                button
-                                selected={navigationIndex === idx}
-                                className={
-                                    navigationIndex === idx
-                                        ? classes.active
-                                        : "nav-link"
+                <div key={key}>
+                    {key === "signOut" && <Divider />}
+                    <List>
+                        {!Array.isArray(navigation[key]) && key !== "signOut" && (
+                            <InertiaLink
+                                href={navigation[key].to}
+                                onClick={() =>
+                                    handleNavName(navigation[key].name, idx)
                                 }
+                                key={key}
                             >
-                                <ListItemIcon>
-                                    {navigation[`${key}`].icon}
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary={navigation[`${key}`].name}
-                                />
-                            </ListItem>
-                        </InertiaLink>
-                    )}
-                    {key === "programmes" &&
-                        navigation[`${key}`].map((nav, index) => (
-                            <div key={index}>
                                 <ListItem
                                     button
-                                    key={index}
-                                    onClick={handleNavDropdown}
                                     selected={navigationIndex === idx}
-                                    onFocus={() =>
-                                        handleDropdownLinkToggle(idx)
+                                    className={
+                                        navigationIndex === idx
+                                            ? classes.active
+                                            : "nav-link"
                                     }
                                 >
-                                    <ListItemIcon>{nav.icon}</ListItemIcon>
-                                    <ListItemText primary={nav.name} />
-                                    {toggleNavDropdown ? (
-                                        <ExpandLess />
-                                    ) : (
-                                        <ExpandMore />
-                                    )}
+                                    <ListItemIcon>
+                                        {navigation[key].icon}
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={navigation[key].name}
+                                    />
                                 </ListItem>
-                                {nav.dropdown.map((d, i) => (
-                                    <Collapse
-                                        in={toggleNavDropdown}
-                                        timeout="auto"
-                                        unmountOnExit
-                                        key={i.toString()}
-                                    >
-                                        <List component="div" disablePadding>
-                                            <InertiaLink
-                                                href={d.to}
-                                                onClick={() =>
-                                                    handleDropdownActiveLink(
-                                                        d.name,
-                                                        idx
-                                                    )
-                                                }
-                                            >
-                                                <ListItem
-                                                    button
-                                                    selected={
-                                                        navigationIndex ===
-                                                        d.name
-                                                    }
-                                                    className={
-                                                        (classes.nested,
-                                                        dropdownActiveLink ===
-                                                        d.name
-                                                            ? classes.active
-                                                            : "")
-                                                    }
-                                                >
-                                                    <ListItemText
-                                                        primary={d.name}
-                                                        className={"ml-4"}
-                                                    />
-                                                </ListItem>
-                                            </InertiaLink>
-                                        </List>
-                                    </Collapse>
-                                ))}
-                            </div>
-                        ))}
-                    {key === "lectures" &&
-                        navigation[`${key}`].map((nav, index) => (
-                            <div key={index}>
+                            </InertiaLink>
+                        )}
+                        {!Array.isArray(navigation[key]) && key === "signOut" && (
+                            <InertiaLink
+                                href={navigation[key].to}
+                                onClick={() =>
+                                    handleNavName(navigation[key].name, idx)
+                                }
+                                key={key}
+                                method="post"
+                                as="button"
+                                type="button"
+                                className="signout-btn"
+                            >
                                 <ListItem
                                     button
-                                    key={index}
-                                    onClick={handleNavDropdown1}
                                     selected={navigationIndex === idx}
-                                    onFocus={() =>
-                                        handleDropdownLinkToggle(idx)
+                                    className={
+                                        navigationIndex === idx
+                                            ? classes.active
+                                            : "nav-link"
                                     }
                                 >
-                                    <ListItemIcon>{nav.icon}</ListItemIcon>
-                                    <ListItemText primary={nav.name} />
-                                    {toggleNavDropdown1 ? (
-                                        <ExpandLess />
-                                    ) : (
-                                        <ExpandMore />
-                                    )}
+                                    <ListItemIcon>
+                                        {navigation[key].icon}
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={navigation[key].name}
+                                    />
                                 </ListItem>
-                                {nav.dropdown.map((d, i) => (
-                                    <Collapse
-                                        in={toggleNavDropdown1}
-                                        timeout="auto"
-                                        unmountOnExit
-                                        key={i.toString()}
+                            </InertiaLink>
+                        )}
+                        {Array.isArray(navigation[key]) &&
+                            navigation[key].map((nav, index) => (
+                                <div key={index + nav.name}>
+                                    <ListItem
+                                        button
+                                        onClick={() => handleNavDropdown(key)}
+                                        selected={navigationIndex === idx}
+                                        onFocus={() =>
+                                            handleDropdownLinkToggle(idx)
+                                        }
                                     >
-                                        <List component="div" disablePadding>
-                                            <InertiaLink
-                                                href={d.to}
-                                                onClick={() =>
-                                                    handleDropdownActiveLink(
-                                                        d.name,
-                                                        idx
-                                                    )
-                                                }
+                                        <ListItemIcon>{nav.icon}</ListItemIcon>
+                                        <ListItemText primary={nav.name} />
+                                        {toggleNavDropdown[key] ? (
+                                            <ExpandLess />
+                                        ) : (
+                                            <ExpandMore />
+                                        )}
+                                    </ListItem>
+                                    {nav.dropdown.map((d, i) => (
+                                        <Collapse
+                                            in={toggleNavDropdown[key]}
+                                            timeout="auto"
+                                            unmountOnExit
+                                            key={d.name}
+                                        >
+                                            <List
+                                                component="div"
+                                                disablePadding
                                             >
-                                                <ListItem
-                                                    button
-                                                    selected={
-                                                        navigationIndex ===
-                                                        d.name
-                                                    }
-                                                    className={
-                                                        (classes.nested,
-                                                        dropdownActiveLink ===
-                                                        d.name
-                                                            ? classes.active
-                                                            : "")
+                                                <InertiaLink
+                                                    href={d.to}
+                                                    onClick={() =>
+                                                        handleDropdownActiveLink(
+                                                            d.name,
+                                                            idx
+                                                        )
                                                     }
                                                 >
-                                                    <ListItemText
-                                                        primary={d.name}
-                                                        className={"ml-4"}
-                                                    />
-                                                </ListItem>
-                                            </InertiaLink>
-                                        </List>
-                                    </Collapse>
-                                ))}
-                            </div>
-                        ))}
-                </List>
-            ))}
-
-            <Divider />
-            {Object.keys(navigation).map((key, idx) => (
-                <List key={idx}>
-                    {key === "signOut" && (
-                        <InertiaLink
-                            href={navigation[`${key}`].to}
-                            onClick={() => handleNavName("", idx)}
-                        >
-                            <ListItem
-                                button
-                                selected={navigationIndex === idx}
-                                className={
-                                    navigationIndex === idx
-                                        ? classes.active
-                                        : "nav-link"
-                                }
-                            >
-                                <ListItemIcon>
-                                    {navigation[`${key}`].icon}
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary={navigation[`${key}`].name}
-                                />
-                            </ListItem>
-                        </InertiaLink>
-                    )}
-                </List>
+                                                    <ListItem
+                                                        button
+                                                        selected={
+                                                            navigationIndex ===
+                                                            d.name
+                                                        }
+                                                        className={
+                                                            (classes.nested,
+                                                            dropdownActiveLink ===
+                                                            d.name
+                                                                ? classes.active
+                                                                : "")
+                                                        }
+                                                    >
+                                                        <ListItemText
+                                                            primary={d.name}
+                                                            className={"ml-4"}
+                                                        />
+                                                    </ListItem>
+                                                </InertiaLink>
+                                            </List>
+                                        </Collapse>
+                                    ))}
+                                </div>
+                            ))}
+                    </List>
+                </div>
             ))}
         </>
     );

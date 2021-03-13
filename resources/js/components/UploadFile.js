@@ -37,7 +37,13 @@ function chunksReducer(state, action) {
             return state;
     }
 }
-const UploadFile = ({ btnText = "upload" }) => {
+const UploadFile = ({
+    btnText = "upload",
+    fileUploading,
+    getFileName,
+    resetFile,
+    location = ""
+}) => {
     const classes = useStyles();
     const [file, setFile] = React.useState(undefined);
     const [chunksCounter, setChunksCounter] = React.useState(0);
@@ -46,6 +52,8 @@ const UploadFile = ({ btnText = "upload" }) => {
     const [uploaded, setUploaded] = React.useState(0);
     const [fileProgress, setFileProgress] = React.useState(false);
     const [isUploading, setIsUploading] = React.useState(false);
+    const [fileExistError, setFileExistError] = React.useState("");
+    const [fileLocation, setFileLocation] = React.useState("");
     const initialRender = React.useRef(true);
     const config = {
         headers: {
@@ -61,7 +69,7 @@ const UploadFile = ({ btnText = "upload" }) => {
     };
     const upload = data => {
         axios
-            .post("/dashboard/upload", data, config)
+            .post(`/dashboard/upload/${fileLocation}`, data, config)
             .then(res => {
                 if (res.data.uploaded) {
                     setIsUploading(false);
@@ -74,6 +82,7 @@ const UploadFile = ({ btnText = "upload" }) => {
                         });
                         setChunksCounter(chunksCounter => chunksCounter - 1);
                     } else {
+                        setFileExistError("The video already uploaded!");
                         setIsUploading(false);
                         dispatch({ type: "clearChunks" });
                         setChunksCounter(0);
@@ -85,7 +94,7 @@ const UploadFile = ({ btnText = "upload" }) => {
             });
     };
 
-    const handleChange = e => {
+    const handleFileChange = e => {
         e.preventDefault();
         const _file = e.target.files[0];
         setFile(undefined);
@@ -93,6 +102,9 @@ const UploadFile = ({ btnText = "upload" }) => {
         setChunkSize(0);
         setUploaded(0);
         setFile(_file);
+        getFileName(() => _file.name);
+        setFileLocation(location);
+        setFileExistError("");
         let size = 1048576 * 3; // 3mb;
         setChunkSize(Math.ceil(_file.size / size));
         setChunksCounter(Math.ceil(_file.size / size));
@@ -108,6 +120,7 @@ const UploadFile = ({ btnText = "upload" }) => {
         setFileProgress(true);
         setIsUploading(true);
     };
+
     React.useEffect(() => {
         if (initialRender.current) {
             initialRender.current = false;
@@ -120,19 +133,36 @@ const UploadFile = ({ btnText = "upload" }) => {
             }
         }
     }, [chunksCounter]);
+    React.useEffect(() => {
+        fileUploading(() => isUploading);
+    }, [isUploading]);
+    React.useEffect(() => {
+        if (!resetFile) {
+            if (file) {
+                setFile(undefined);
+                dispatch({ type: "clearChunks" });
+                setChunkSize(0);
+                setUploaded(0);
+                getFileName(() => "");
+                setFileExistError("");
+                setFileProgress(false);
+                setFileLocation();
+            }
+        }
+    }, [resetFile]);
 
     return (
         <div className={(classes.width, "upload-box")}>
             <input
-                accept="/*"
+                accept="video/*"
                 className={classes.input}
-                id="contained-button-file"
-                multiple
+                id="video-file"
                 type="file"
+                required
                 disabled={isUploading}
-                onChange={handleChange}
+                onChange={handleFileChange}
             />
-            <label htmlFor="contained-button-file">
+            <label htmlFor="video-file">
                 <Button
                     variant="contained"
                     color="primary"
@@ -162,6 +192,9 @@ const UploadFile = ({ btnText = "upload" }) => {
                         >{`${Math.round(uploaded)}%`}</Typography>
                     </Box>
                 </Box>
+            )}
+            {fileExistError && (
+                <p className="upload-file-name error">{fileExistError}</p>
             )}
         </div>
     );

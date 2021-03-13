@@ -206,6 +206,7 @@ const EnhancedTableToolbar = props => {
         handleChange,
         handleSubmit,
         isSubmitting,
+        updateIsSubmitting,
         errors,
         handleBlur,
         clearValues,
@@ -229,6 +230,7 @@ const EnhancedTableToolbar = props => {
         Inertia.post("/dashboard/create-programme", values, {
             errorBag: "createProgramme",
             onSuccess: page => {
+                updateIsSubmitting(false);
                 clearValues();
                 setAlertMessage("Programme added successfully");
                 setOpenAlert(true);

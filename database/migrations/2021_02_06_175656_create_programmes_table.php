@@ -16,6 +16,9 @@ class CreateProgrammesTable extends Migration
         Schema::create('programmes', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->unsignedBigInteger('year_1', false)->default(0);
+            $table->unsignedBigInteger('year_2', false)->default(0);
+            $table->unsignedBigInteger('year_3', false)->default(0);
             $table->timestamps();
         });
     }

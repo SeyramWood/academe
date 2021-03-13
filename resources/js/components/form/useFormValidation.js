@@ -14,9 +14,6 @@ function useFormValidation(initialState, validationRules, callBack) {
             if (noErrors) {
                 callBack();
                 setErrors({});
-                setTimeout(() => {
-                    setIsSubmitting(false);
-                }, 1000);
             } else {
                 setTimeout(() => {
                     setIsSubmitting(false);
@@ -25,11 +22,22 @@ function useFormValidation(initialState, validationRules, callBack) {
         }
     }, [errors, isSubmitting, callBack]);
     const handleChange = e => {
-        const { name, value, type, checked } = e.target;
-        type === "checkbox"
-            ? setState({ ...state, [name]: checked })
-            : setState({ ...state, [name]: value });
+        e.preventDefault();
+        const { name, value, files, type, checked } = e.target;
+        if (type === "file") {
+            if (files) {
+                setState(state => ({
+                    ...state,
+                    [name]: Object.values(files)
+                }));
+            }
+        } else {
+            type === "checkbox"
+                ? setState({ ...state, [name]: checked })
+                : setState({ ...state, [name]: value });
+        }
     };
+
     const handleBlur = () => {
         setErrors(validateForm(state, validationRules));
     };
@@ -57,12 +65,16 @@ function useFormValidation(initialState, validationRules, callBack) {
             setErrors({ ...errors, ...err });
         }
     };
+    const updateIsSubmitting = boolean => {
+        setIsSubmitting(boolean);
+    };
 
     return {
         handleChange,
         handleBlur,
         handleSubmit,
         isSubmitting,
+        updateIsSubmitting,
         errors,
         state,
         clearValues,

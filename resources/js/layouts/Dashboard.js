@@ -1,3 +1,4 @@
+import { usePage } from "@inertiajs/inertia-react";
 import { Inertia } from "@inertiajs/inertia";
 import React from "react";
 import clsx from "clsx";
@@ -98,8 +99,8 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: deepOrange[500]
     },
     avaterSmall: {
-        width: theme.spacing(3),
-        height: theme.spacing(3)
+        width: theme.spacing(2.8),
+        height: theme.spacing(2.8)
     },
     active: { color: "rgb(233, 99, 3)" }
 }));
@@ -107,14 +108,11 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = ({ children }) => {
     const classes = useStyles();
     const theme = useTheme();
-    React.useEffect(() => {
-        if (!localStorage.getItem("navName")) {
-            localStorage.setItem("navName", "Home");
-        }
-    }, []);
+    const { authUser } = usePage().props;
     const [openDrawer, setOpenDrawer] = React.useState(false);
     const [profilePopper, setProfilePopper] = React.useState(false);
     const [notificationPopper, setNotificationPopper] = React.useState(false);
+    const [userType, setUserType] = React.useState("admin");
     const [navName, setNavName] = React.useState(
         localStorage.getItem("navName")
     );
@@ -176,6 +174,21 @@ const Dashboard = ({ children }) => {
         prevNotificationPopperOpen.current = profilePopper;
     }, [profilePopper, notificationPopper, navName]);
 
+    const logout = () => {
+        Inertia.post("/logout", {
+            errorBag: "logout",
+            onSuccess: page => {},
+            onError: error => {
+                console.log(error);
+            }
+        });
+    };
+
+    React.useEffect(() => {
+        if (!localStorage.getItem("navName")) {
+            localStorage.setItem("navName", "Home");
+        }
+    }, [navName]);
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -241,15 +254,15 @@ const Dashboard = ({ children }) => {
                                 >
                                     <div className="current-user__image">
                                         <Avatar
-                                            alt="Seyram Wood"
-                                            src="/storage/avatar/students/sey.jpg"
-                                            className={classes.avatarSmall}
+                                            alt={authUser.surname || ""}
+                                            src={`/storage/avatar/lecturers/${authUser.avatar}`}
+                                            className={classes.avaterSmall}
                                         >
-                                            SW
+                                            F
                                         </Avatar>
                                     </div>
                                     <span className="current-user__name">
-                                        Seyram Wood Prikah
+                                        {authUser.faculty_id}
                                     </span>
                                 </a>
                             </Tooltip>
@@ -291,11 +304,7 @@ const Dashboard = ({ children }) => {
                                                         Profile
                                                     </MenuItem>
 
-                                                    <MenuItem
-                                                        onClick={
-                                                            handleProfilePopper
-                                                        }
-                                                    >
+                                                    <MenuItem onClick={logout}>
                                                         Logout
                                                     </MenuItem>
                                                 </MenuList>

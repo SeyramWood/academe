@@ -131,9 +131,10 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+        // 'documents' => [
+        //     'file' => 'The  must be a file',
+        //     'mimes' => 'The must be a file of type: :values.',
+        // ],
     ],
 
     /*

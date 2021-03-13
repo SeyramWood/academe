@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "js/" + ({}[chunkId]||chunkId) + ".js?id=" + {"0":"37fe6b916698c0632cbd","1":"f9ca341e2d918012b53f","2":"b781165adcffdb799b52","3":"a52552b403748c3b467b","4":"096c768644d19dc1c053","5":"c6e78ed7b5c38b3e1965","6":"1ce3b02c08d80e6b2096","7":"59b2c5de97f3767bcb93","8":"c75bc57980f168fa0418","9":"771a69be863e22d14779","10":"12c5ca382ff95559c5a7","11":"03414ed35d47b1d076f8","12":"60fd99f688794d97ae90","13":"5565ca8ed63b6874a8c7","14":"14342292fd7a6b7a9ad8"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "js/" + ({"reactPlayerFacebook":"reactPlayerFacebook","reactPlayerKaltura":"reactPlayerKaltura","reactPlayerMixcloud":"reactPlayerMixcloud","reactPlayerPreview":"reactPlayerPreview","reactPlayerSoundCloud":"reactPlayerSoundCloud","reactPlayerStreamable":"reactPlayerStreamable","reactPlayerTwitch":"reactPlayerTwitch","reactPlayerVidyard":"reactPlayerVidyard","vendors~reactPlayerDailyMotion":"vendors~reactPlayerDailyMotion","vendors~reactPlayerFilePlayer":"vendors~reactPlayerFilePlayer","vendors~reactPlayerVimeo":"vendors~reactPlayerVimeo","vendors~reactPlayerWistia":"vendors~reactPlayerWistia","vendors~reactPlayerYouTube":"vendors~reactPlayerYouTube"}[chunkId]||chunkId) + ".js?id=" + {"0":"8308edef0ca3bdc7dc5b","1":"840bfc16ac94781913b2","2":"873fdb53298dc9525b20","3":"911cd8c0a0cd27933028","4":"d853be3808304695ff61","5":"15cbf3c248317ebee4dd","6":"9ee4a8ebeaaba40ef497","7":"05a6f304af04281b2c87","8":"cd0a2241bd9dae213b62","9":"9beb24ec7207e933527a","10":"9ff40a75826dfb306c0e","11":"13e1b9ec35eca7082f2d","12":"57de83736fb0d974dc81","13":"f06897be9483eb951b79","14":"3169c4d02cceb898d525","15":"2137098d8a661179b54b","16":"17584d78680c22b3fbba","17":"dd1cfbf849312317b88e","18":"888f6e25b8bcda99dc7e","19":"c09120e09e47e4a2e2c6","20":"ba76ced15a272206fee4","21":"562d75ffb710f4ee6d7d","22":"fbefd54aa8c18112367f","23":"ee3c398fe2ba536f292c","24":"5aa33dc8acd7d08059f8","25":"3fddfc22fd9ca2cae24d","26":"355e09127fed0155ab5a","27":"876ff539e9c5ead0cbbe","28":"6be4ed9a92dcd2fe30f4","29":"be64fd2b8c2bc992746f","30":"216e4149d3b2494047f5","31":"042a6a32fe0a4e6799e3","reactPlayerFacebook":"9ed49a00f6e5046dfb90","reactPlayerKaltura":"40e540d01e82b032bece","reactPlayerMixcloud":"b36201fb2560fce22e87","reactPlayerPreview":"1d9510be9e37bab668e7","reactPlayerSoundCloud":"f976ba11e924763c6767","reactPlayerStreamable":"0c7a8975f080ec66870e","reactPlayerTwitch":"f80860124a5e95bc7bc1","reactPlayerVidyard":"e2750513ffa1a6e6dac4","vendors~reactPlayerDailyMotion":"713d350fca69d262031f","vendors~reactPlayerFilePlayer":"e8f8b556107007a1e2c5","vendors~reactPlayerVimeo":"f0d80d636a5665759298","vendors~reactPlayerWistia":"3e4f42cf4f99394d67b7","vendors~reactPlayerYouTube":"50233b8824e4b30f5914"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -34384,97 +34384,317 @@ module.exports = function (css) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./StudentWatchVideo": [
+		"./resources/js/Pages/StudentWatchVideo.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		11,
+		13,
+		9,
+		15,
+		27
+	],
+	"./StudentWatchVideo.js": [
+		"./resources/js/Pages/StudentWatchVideo.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		11,
+		13,
+		9,
+		15,
+		27
+	],
+	"./WatchVideo": [
+		"./resources/js/Pages/WatchVideo.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		11,
+		13,
+		6,
+		15,
+		23
+	],
+	"./WatchVideo.js": [
+		"./resources/js/Pages/WatchVideo.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		11,
+		13,
+		6,
+		15,
+		23
+	],
 	"./Welcome": [
 		"./resources/js/Pages/Welcome.js",
-		13
+		0,
+		2,
+		7,
+		5,
+		28
 	],
 	"./Welcome.js": [
 		"./resources/js/Pages/Welcome.js",
-		13
+		0,
+		2,
+		7,
+		5,
+		28
 	],
 	"./backend/Home": [
 		"./resources/js/Pages/backend/Home.js",
 		0,
-		4,
-		8,
 		1,
-		14
+		3,
+		16,
+		6,
+		24
 	],
 	"./backend/Home.js": [
 		"./resources/js/Pages/backend/Home.js",
 		0,
-		4,
-		8,
 		1,
-		14
+		3,
+		16,
+		6,
+		24
 	],
 	"./backend/ManageCourses": [
 		"./resources/js/Pages/backend/ManageCourses.js",
 		0,
-		2,
-		5,
 		1,
-		3,
-		10
+		2,
+		4,
+		7,
+		8,
+		10,
+		12,
+		11,
+		6,
+		5,
+		20
 	],
 	"./backend/ManageCourses.js": [
 		"./resources/js/Pages/backend/ManageCourses.js",
 		0,
-		2,
-		5,
 		1,
-		3,
-		10
+		2,
+		4,
+		7,
+		8,
+		10,
+		12,
+		11,
+		6,
+		5,
+		20
 	],
 	"./backend/ManageLectures": [
 		"./resources/js/Pages/backend/ManageLectures.js",
 		0,
-		2,
-		7,
 		1,
-		3,
-		9
+		2,
+		4,
+		7,
+		8,
+		12,
+		17,
+		6,
+		5,
+		19
 	],
 	"./backend/ManageLectures.js": [
 		"./resources/js/Pages/backend/ManageLectures.js",
 		0,
-		2,
-		7,
 		1,
-		3,
-		9
+		2,
+		4,
+		7,
+		8,
+		12,
+		17,
+		6,
+		5,
+		19
 	],
 	"./backend/ManageProgrammes": [
 		"./resources/js/Pages/backend/ManageProgrammes.js",
 		0,
-		2,
 		1,
-		3,
-		11
+		2,
+		4,
+		7,
+		8,
+		12,
+		6,
+		5,
+		21
 	],
 	"./backend/ManageProgrammes.js": [
 		"./resources/js/Pages/backend/ManageProgrammes.js",
 		0,
-		2,
 		1,
+		2,
+		4,
+		7,
+		8,
+		12,
+		6,
+		5,
+		21
+	],
+	"./backend/Profile": [
+		"./resources/js/Pages/backend/Profile.js",
+		0,
+		1,
+		2,
 		3,
-		11
+		4,
+		7,
+		8,
+		10,
+		6,
+		5,
+		18,
+		30
+	],
+	"./backend/Profile.js": [
+		"./resources/js/Pages/backend/Profile.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		7,
+		8,
+		10,
+		6,
+		5,
+		18,
+		30
 	],
 	"./backend/Programmes": [
 		"./resources/js/Pages/backend/Programmes.js",
 		0,
-		4,
-		6,
 		1,
-		12
+		3,
+		14,
+		6,
+		22
 	],
 	"./backend/Programmes.js": [
 		"./resources/js/Pages/backend/Programmes.js",
 		0,
-		4,
-		6,
 		1,
-		12
+		3,
+		14,
+		6,
+		22
+	],
+	"./student/Courses": [
+		"./resources/js/Pages/student/Courses.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		7,
+		8,
+		10,
+		5,
+		9,
+		25
+	],
+	"./student/Courses.js": [
+		"./resources/js/Pages/student/Courses.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		7,
+		8,
+		10,
+		5,
+		9,
+		25
+	],
+	"./student/Home": [
+		"./resources/js/Pages/student/Home.js",
+		0,
+		1,
+		3,
+		16,
+		9,
+		29
+	],
+	"./student/Home.js": [
+		"./resources/js/Pages/student/Home.js",
+		0,
+		1,
+		3,
+		16,
+		9,
+		29
+	],
+	"./student/Lectures": [
+		"./resources/js/Pages/student/Lectures.js",
+		0,
+		1,
+		3,
+		14,
+		9,
+		26
+	],
+	"./student/Lectures.js": [
+		"./resources/js/Pages/student/Lectures.js",
+		0,
+		1,
+		3,
+		14,
+		9,
+		26
+	],
+	"./student/Profile": [
+		"./resources/js/Pages/student/Profile.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		7,
+		8,
+		10,
+		5,
+		9,
+		18,
+		31
+	],
+	"./student/Profile.js": [
+		"./resources/js/Pages/student/Profile.js",
+		0,
+		1,
+		2,
+		3,
+		4,
+		7,
+		8,
+		10,
+		5,
+		9,
+		18,
+		31
 	]
 };
 function webpackAsyncContext(req) {
